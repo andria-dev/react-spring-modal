@@ -1,0 +1,115 @@
+devDependencies:
+  react: registry.npmjs.org/react/16.8.6
+  react-spring: registry.npmjs.org/react-spring/8.0.20
+lockfileVersion: 5
+packages:
+  registry.npmjs.org/@babel/runtime/7.4.4:
+    dependencies:
+      regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.13.2
+    dev: true
+    name: '@babel/runtime'
+    resolution:
+      integrity: sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/@babel/runtime/-/runtime-7.4.4.tgz'
+    version: 7.4.4
+  registry.npmjs.org/js-tokens/4.0.0:
+    dev: true
+    name: js-tokens
+    resolution:
+      integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz'
+    version: 4.0.0
+  registry.npmjs.org/loose-envify/1.4.0:
+    dependencies:
+      js-tokens: registry.npmjs.org/js-tokens/4.0.0
+    dev: true
+    hasBin: true
+    name: loose-envify
+    resolution:
+      integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz'
+    version: 1.4.0
+  registry.npmjs.org/object-assign/4.1.1:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    name: object-assign
+    resolution:
+      integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz'
+    version: 4.1.1
+  registry.npmjs.org/prop-types/15.7.2:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      react-is: registry.npmjs.org/react-is/16.8.6
+    dev: true
+    name: prop-types
+    resolution:
+      integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz'
+    version: 15.7.2
+  registry.npmjs.org/react-is/16.8.6:
+    dev: true
+    name: react-is
+    resolution:
+      integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz'
+    version: 16.8.6
+  registry.npmjs.org/react-spring/8.0.20:
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.4
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+    dev: true
+    name: react-spring
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    resolution:
+      integrity: sha512-40ZUQ5uI5YHsoQWLPchWNcEUh6zQ6qvcVDeTI2vW10ldoCN3PvDsII9wBH2xEbMl+BQvYmHzGdfLTQxPxJWGnQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react-spring/-/react-spring-8.0.20.tgz'
+    version: 8.0.20
+  registry.npmjs.org/react/16.8.6:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      scheduler: registry.npmjs.org/scheduler/0.13.6
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    name: react
+    resolution:
+      integrity: sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/react/-/react-16.8.6.tgz'
+    version: 16.8.6
+  registry.npmjs.org/regenerator-runtime/0.13.2:
+    dev: true
+    name: regenerator-runtime
+    resolution:
+      integrity: sha512-S/TQAZJO+D3m9xeN1WTI8dLKBBiRgXBlTJvbWjCThHWZj9EvHK70Ff50/tYj2J/fvBY6JtFVwRuazHN2E7M9BA==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.2.tgz'
+    version: 0.13.2
+  registry.npmjs.org/scheduler/0.13.6:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+    dev: true
+    name: scheduler
+    resolution:
+      integrity: sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz'
+    version: 0.13.6
+specifiers:
+  react: ^16.8.6
+  react-spring: ^8.0.20

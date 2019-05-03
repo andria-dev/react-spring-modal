@@ -2,9 +2,13 @@
   "name": "react-spring-modal",
   "version": "1.0.0",
   "description": "Animatable and accessible modals built with react-spring",
-  "main": "index.js",
+  "source": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "unpkg": "dist/index.umd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
   "repository": {
     "type": "git",
@@ -24,5 +28,13 @@
   "bugs": {
     "url": "https://github.com/ChrisBrownie55/react-spring-modal/issues"
   },
-  "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme"
+  "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-spring": "^8.0.20"
+  },
+  "peerDependencies": {
+    "react": "~16.8.6",
+    "react-spring": "~8.0.20"
+  }
 }
