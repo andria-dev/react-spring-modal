@@ -9,7 +9,6 @@
   max-height: 20rem;
   padding: var(--padding);
 
-  background-color: var(--background);
   border-radius: 0.2rem;
 
   transform: translate(-50%, -50%);
