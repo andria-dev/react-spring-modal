@@ -118,4 +118,6 @@ Shares props with `<BaseModal>`
 | --------------- | -------------------------------- | ------------------------------------------ |
 | modalTransition | ReturnType<typeof useTransition> | Replaces the transition used for the modal |
 
+## License
+
 License MIT © [Christopher H. Brown](https://github.com/ChrisBrownie55)
