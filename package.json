@@ -9,7 +9,8 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "test:publish": "e2e-verdaccio"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   },
   "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
   "devDependencies": {
+    "e2e-verdaccio": "^1.0.0",
     "react": "^16.8.6",
     "react-spring": "^8.0.20"
   },

@@ -1,4 +1,5 @@
 devDependencies:
+  e2e-verdaccio: registry.npmjs.org/e2e-verdaccio/1.0.0
   react: registry.npmjs.org/react/16.8.6
   react-spring: registry.npmjs.org/react-spring/8.0.20
 lockfileVersion: 5
@@ -13,6 +14,15 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/@babel/runtime/-/runtime-7.4.4.tgz'
     version: 7.4.4
+  registry.npmjs.org/e2e-verdaccio/1.0.0:
+    dev: true
+    hasBin: true
+    name: e2e-verdaccio
+    resolution:
+      integrity: sha512-36ZMPO+4hjyyBxBSiMmhyMYKZHU5PGR8uyADcFxNpn+D6ofbzTmNlhR6u1berTkHsVYab5X1i0RyPh4lWe5AvQ==
+      registry: 'http://registry.npmjs.com/'
+      tarball: 'https://registry.npmjs.org/e2e-verdaccio/-/e2e-verdaccio-1.0.0.tgz'
+    version: 1.0.0
   registry.npmjs.org/js-tokens/4.0.0:
     dev: true
     name: js-tokens
@@ -111,5 +121,6 @@ packages:
       tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.13.6.tgz'
     version: 0.13.6
 specifiers:
+  e2e-verdaccio: ^1.0.0
   react: ^16.8.6
   react-spring: ^8.0.20
