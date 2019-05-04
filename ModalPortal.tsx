@@ -5,18 +5,28 @@ interface IProps {
   children?: JSX.Element | JSX.Element[] | Array<JSX.Element | null>;
 }
 
-const modalRoot = document.querySelector('#modal-root')!;
+const modalRoot = globalThis.document
+  ? document.querySelector('#modal-root')
+  : null;
+
 function ModalPortal({ children }: IProps) {
-  const node = useMemo(() => document.createElement('div'), []);
+  const node = useMemo(
+    () => (globalThis.document ? document.createElement('div') : null),
+    []
+  );
 
   useEffect(() => {
-    modalRoot.appendChild(node);
+    if (modalRoot && node) {
+      modalRoot.appendChild(node);
+    }
     return () => {
-      modalRoot.removeChild(node);
+      if (modalRoot && node) {
+        modalRoot.removeChild(node);
+      }
     };
   }, [node]);
 
-  return createPortal(children, node);
+  return node ? createPortal(children, node) : null;
 }
 
 export default ModalPortal;

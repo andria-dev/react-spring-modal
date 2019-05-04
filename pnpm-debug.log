@@ -1,0 +1,13 @@
+---
+  0 debug pnpm:scope: 
+    selected: 1
+    workspacePrefix: null
+  1 debug pnpm: 
+    isCaseSensitive: false
+    store: "/Users/christopherbrown/.pnpm-store/2"
+  2 debug pnpm:package-json: 
+    initial: {}
+    prefix: "/Users/christopherbrown/.npm/_npx/17428/pnpm-global/2"
+  3 debug pnpm:stage: 
+    prefix: "/Users/christopherbrown/.npm/_npx/17428/pnpm-global/2"
+    stage: "resolution_started"

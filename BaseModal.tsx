@@ -7,7 +7,8 @@ import useLockBodyScroll from 'react-use/lib/useLockBodyScroll';
 
 import 'wicg-inert';
 
-const root = document.getElementById('root')!;
+const root = globalThis.document ? document.getElementById('root') : null;
+
 function getFocusable(element: HTMLElement): NodeListOf<HTMLElement> {
   return element.querySelectorAll(
     'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -57,10 +58,17 @@ function BaseModal({ isOpen, onRequestClose, children }: IBaseModalProps) {
 
   useEffect(() => {
     if (isOpen) {
-      lastActiveElement.current = document.activeElement as HTMLElement;
-      root.setAttribute('inert', '');
+      if (globalThis.document) {
+        lastActiveElement.current = document.activeElement as HTMLElement;
+      }
+
+      if (root) {
+        root.setAttribute('inert', '');
+      }
     } else {
-      root.removeAttribute('inert');
+      if (root) {
+        root.removeAttribute('inert');
+      }
 
       // wait for inert to wear off then focus
       setTimeout(() => {
