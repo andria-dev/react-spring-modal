@@ -6,6 +6,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "unpkg": "dist/index.umd.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch"
