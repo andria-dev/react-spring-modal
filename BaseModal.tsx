@@ -1,12 +1,11 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
-import { useTransition } from '../../hooks';
+import { useTransition } from 'react-spring';
 import ModalBackdrop from './ModalBackdrop';
 import ModalPortal from './ModalPortal';
 
 import useLockBodyScroll from 'react-use/lib/useLockBodyScroll';
 
 import 'wicg-inert';
-import { fast } from '../../spring-configs';
 
 const root = document.getElementById('root')!;
 function getFocusable(element: HTMLElement): NodeListOf<HTMLElement> {
@@ -32,7 +31,6 @@ function BaseModal({ isOpen, onRequestClose, children }: IBaseModalProps) {
     from: { '--opacity': 0 },
     enter: { '--opacity': 0.5 },
     leave: { '--opacity': 0 },
-    config: fast,
     onRest() {
       if (modalRef.current && isOpen) {
         const focusableElements = getFocusable(modalRef.current);

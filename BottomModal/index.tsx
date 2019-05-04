@@ -1,11 +1,9 @@
 import React from 'react';
-import { animated, ItemTransition } from 'react-spring';
-import { useTransition } from '../../../hooks';
+import { animated, ItemTransition, useTransition } from 'react-spring';
 import BaseModal, { IBaseModalProps } from '../BaseModal';
 
 import classNames from '@chbphone55/classnames';
-import { ObjectOf } from '../../../generic-types';
-import { fast } from '../../../spring-configs';
+import { ObjectOf } from '../generic-types';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
@@ -21,8 +19,7 @@ function BottomModal({
   modalTransition = useTransition(isOpen, null, {
     from: { transform: 'translateY(100%) translateX(-50%)' },
     enter: { transform: 'translateY(0%) translateX(-50%)' },
-    leave: { transform: 'translateY(100%) translateX(-50%)' },
-    config: fast
+    leave: { transform: 'translateY(100%) translateX(-50%)' }
   }),
   ...props
 }: IProps) {

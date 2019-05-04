@@ -1,11 +1,9 @@
 import React from 'react';
-import { animated, ItemTransition } from 'react-spring';
-import { ObjectOf } from '../../../generic-types';
-import { useTransition } from '../../../hooks';
+import { useTransition, animated, ItemTransition } from 'react-spring';
+import { ObjectOf } from '../generic-types';
 import BaseModal, { IBaseModalProps } from '../BaseModal';
 
 import classNames from '@chbphone55/classnames';
-import { fast } from '../../../spring-configs';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
@@ -20,7 +18,6 @@ export function useCenterModalTransition(
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: fast,
     ...props
   });
 }

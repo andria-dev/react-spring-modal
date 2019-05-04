@@ -8,7 +8,7 @@
   "unpkg": "dist/index.umd.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "microbundle",
+    "build": "microbundle --jsx=react",
     "dev": "microbundle watch",
     "test:publish": "e2e-verdaccio"
   },
@@ -32,12 +32,22 @@
   },
   "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
   "devDependencies": {
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
     "e2e-verdaccio": "^1.0.0",
+    "microbundle": "^0.11.0",
     "react": "^16.8.6",
-    "react-spring": "^8.0.20"
+    "react-dom": "^16.8.6",
+    "react-spring": "^9.0.0-beta.5"
   },
   "peerDependencies": {
     "react": "~16.8.6",
+    "react-dom": "~16.8.6",
     "react-spring": "~8.0.20"
+  },
+  "dependencies": {
+    "@chbphone55/classnames": "^1.0.3",
+    "react-use": "^8.3.1",
+    "wicg-inert": "^2.1.0"
   }
 }
