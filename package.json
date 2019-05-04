@@ -4,7 +4,7 @@
   "description": "Animatable and accessible modals built with react-spring",
   "source": "index.ts",
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "dist/index.m.js",
   "unpkg": "dist/index.umd.js",
   "typings": "dist/index.d.ts",
   "scripts": {
