@@ -15,8 +15,11 @@ export function useCenterModalTransition(
   props: ObjectOf<any> = {}
 ) {
   return useTransition(isOpen, null, {
+    // @ts-ignore
     from: { opacity: 0 },
+    // @ts-ignore
     enter: { opacity: 1 },
+    // @ts-ignore
     leave: { opacity: 0 },
     ...props
   });

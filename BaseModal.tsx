@@ -9,7 +9,13 @@ if (globalThis.document) {
   require('wicg-inert');
 }
 
-const root = globalThis.document ? document.getElementById('root') : null;
+let root: HTMLElement | null = null;
+if (globalThis.document) {
+  root = document.getElementById('root');
+  if (!root) {
+    root = document.getElementById('__next');
+  }
+}
 
 function getFocusable(element: HTMLElement): NodeListOf<HTMLElement> {
   return element.querySelectorAll(

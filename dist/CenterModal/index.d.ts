@@ -1,19 +1,11 @@
-import React from 'react';
-import { ItemTransition } from 'react-spring';
+/// <reference types="react" />
+import { useTransition } from 'react-spring';
 import { ObjectOf } from '../generic-types';
 import { IBaseModalProps } from '../BaseModal';
 import './style.css';
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-    modalTransition?: Array<ItemTransition<any, any>>;
+    modalTransition?: ReturnType<typeof useTransition>;
 }
-export declare function useCenterModalTransition(isOpen: boolean, props?: ObjectOf<any>): {
-    key: React.ReactText;
-    item: boolean;
-    phase: import("react-spring").TransitionPhase;
-    props: {
-        [x: string]: import("react-spring").AnimatedValue<any>;
-        opacity: import("react-spring").AnimatedValue<number>;
-    };
-}[];
+export declare function useCenterModalTransition(isOpen: boolean, props?: ObjectOf<any>): any;
 declare function CenterModal({ isOpen, onRequestClose, className, modalTransition, ...props }: IProps): JSX.Element;
 export default CenterModal;
