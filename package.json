@@ -8,8 +8,8 @@
   "unpkg": "dist/index.umd.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "microbundle --jsx=react",
-    "dev": "microbundle watch",
+    "build": "microbundle --jsx=react --raw",
+    "dev": "microbundle watch --jsx=react --raw",
     "test:publish": "e2e-verdaccio"
   },
   "repository": {
