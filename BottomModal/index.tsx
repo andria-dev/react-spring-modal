@@ -1,5 +1,5 @@
 import React from 'react';
-import { animated, ItemTransition, useTransition } from 'react-spring';
+import { animated, useTransition } from 'react-spring';
 import BaseModal, { IBaseModalProps } from '../BaseModal';
 
 import classNames from '@chbphone55/classnames';
@@ -7,7 +7,7 @@ import { ObjectOf } from '../generic-types';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-  modalTransition?: Array<ItemTransition<any, any>>;
+  modalTransition?: ReturnType<typeof useTransition>;
 }
 
 function BottomModal({

@@ -7,9 +7,11 @@
   "module": "dist/index.m.js",
   "unpkg": "dist/index.umd.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
-    "build": "microbundle --jsx=react --raw",
-    "dev": "microbundle watch --jsx=react --raw",
+    "build": "microbundle --jsx=React.createElement --raw",
     "test:publish": "e2e-verdaccio"
   },
   "repository": {
@@ -32,13 +34,14 @@
   },
   "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
   "devDependencies": {
+    "@types/node": "^12.0.0",
     "@types/react": "^16.8.15",
     "@types/react-dom": "^16.8.4",
     "e2e-verdaccio": "^1.0.0",
     "microbundle": "^0.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-spring": "^9.0.0-beta.5"
+    "react-spring": "^8.0.20"
   },
   "peerDependencies": {
     "react": "~16.8.6",

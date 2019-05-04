@@ -3,13 +3,14 @@ dependencies:
   react-use: registry.npmjs.org/react-use/8.3.1
   wicg-inert: registry.npmjs.org/wicg-inert/2.1.0
 devDependencies:
+  '@types/node': registry.npmjs.org/@types/node/12.0.0
   '@types/react': registry.npmjs.org/@types/react/16.8.15
   '@types/react-dom': registry.npmjs.org/@types/react-dom/16.8.4
   e2e-verdaccio: registry.npmjs.org/e2e-verdaccio/1.0.0
   microbundle: registry.npmjs.org/microbundle/0.11.0
   react: registry.npmjs.org/react/16.8.6
   react-dom: registry.npmjs.org/react-dom/16.8.6
-  react-spring: registry.npmjs.org/react-spring/9.0.0-beta.5
+  react-spring: registry.npmjs.org/react-spring/8.0.20
 lockfileVersion: 5
 packages:
   registry.npmjs.org/@babel/code-frame/7.0.0:
@@ -5022,7 +5023,7 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz'
     version: 16.8.6
-  registry.npmjs.org/react-spring/9.0.0-beta.5:
+  registry.npmjs.org/react-spring/8.0.20:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.4
       prop-types: registry.npmjs.org/prop-types/15.7.2
@@ -5032,10 +5033,10 @@ packages:
       react: '>= 16.8.0'
       react-dom: '>= 16.8.0'
     resolution:
-      integrity: sha512-K+2uYWGg6n3NWXlYbeDPsmLqtIXolEYu/aBEHi6Myq9yH7yNxAGwnDLD/ZgCl6JjrdqVOURd+mERsyTWrRXTTA==
+      integrity: sha512-40ZUQ5uI5YHsoQWLPchWNcEUh6zQ6qvcVDeTI2vW10ldoCN3PvDsII9wBH2xEbMl+BQvYmHzGdfLTQxPxJWGnQ==
       registry: 'http://registry.npmjs.com/'
-      tarball: 'https://registry.npmjs.org/react-spring/-/react-spring-9.0.0-beta.5.tgz'
-    version: 9.0.0-beta.5
+      tarball: 'https://registry.npmjs.org/react-spring/-/react-spring-8.0.20.tgz'
+    version: 8.0.20
   registry.npmjs.org/react-use/8.3.1:
     dependencies:
       copy-to-clipboard: registry.npmjs.org/copy-to-clipboard/3.1.0
@@ -6579,12 +6580,13 @@ packages:
     version: 4.0.1
 specifiers:
   '@chbphone55/classnames': ^1.0.3
+  '@types/node': ^12.0.0
   '@types/react': ^16.8.15
   '@types/react-dom': ^16.8.4
   e2e-verdaccio: ^1.0.0
   microbundle: ^0.11.0
   react: ^16.8.6
   react-dom: ^16.8.6
-  react-spring: ^9.0.0-beta.5
+  react-spring: ^8.0.20
   react-use: ^8.3.1
   wicg-inert: ^2.1.0

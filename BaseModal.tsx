@@ -5,7 +5,9 @@ import ModalPortal from './ModalPortal';
 
 import useLockBodyScroll from 'react-use/lib/useLockBodyScroll';
 
-import 'wicg-inert';
+if (globalThis.document) {
+  require('wicg-inert');
+}
 
 const root = globalThis.document ? document.getElementById('root') : null;
 
@@ -49,10 +51,14 @@ function BaseModal({ isOpen, onRequestClose, children }: IBaseModalProps) {
         onRequestClose();
       }
     }
-    window.addEventListener('keyup', listener);
+    if (globalThis.window) {
+      window.addEventListener('keyup', listener);
+    }
 
     return () => {
-      window.removeEventListener('keyup', listener);
+      if (globalThis.window) {
+        window.removeEventListener('keyup', listener);
+      }
     };
   }, [onRequestClose]);
 

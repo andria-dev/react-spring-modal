@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import 'wicg-inert';
 export interface IBaseModalProps {
     children: ReactNode;
     isOpen: boolean;
