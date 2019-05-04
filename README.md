@@ -2,13 +2,13 @@
 
 A component library for animatable and accessible modals built with react-spring. Built to be composable to create any transition that matches your needs.
 
-:white_check_mark: Supports SSR
+✅ Supports SSR
 <br>
-:white_check_mark: Handles focus restoration
+✅ Handles focus restoration
 <br>
-:white_check_mark: Prevents focus on covered content via `inert` attribute; includes polyfill
+✅ Prevents focus on covered content via `inert` attribute; includes polyfill
 <br>
-:white_check_mark: Animatable via `react-spring`'s `useTransition`
+✅ Animatable via `react-spring`'s `useTransition`
 
 ## Usage
 
