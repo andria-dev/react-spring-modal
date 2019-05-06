@@ -31,15 +31,16 @@ function CenterModal({
   className,
   // eslint-disable-next-line react-hooks/rules-of-hooks
   modalTransition = useCenterModalTransition(isOpen),
+  style,
   ...props
 }: IProps) {
   return (
     <BaseModal isOpen={isOpen} onRequestClose={onRequestClose}>
-      {modalTransition.map(({ item, key, props: style }) =>
+      {modalTransition.map(({ item, key, props: transitionStyles }) =>
         item ? (
           <animated.div
             key={key}
-            style={style}
+            style={{ ...transitionStyles, ...style }}
             className={classNames('CenterModal shadow-lg', className)}
             {...props}
           />
