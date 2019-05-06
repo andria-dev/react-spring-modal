@@ -6,5 +6,6 @@ import './style.css';
 interface IProps extends IBaseModalProps, ObjectOf<any> {
     modalTransition?: ReturnType<typeof useTransition>;
 }
-declare function BottomModal({ children, isOpen, onRequestClose, className, modalTransition, ...props }: IProps): JSX.Element;
+export declare function useBottomModalTransition(isOpen: boolean, props?: ObjectOf<any>): any;
+declare function BottomModal({ children, isOpen, onRequestClose, className, modalTransition, style, ...props }: IProps): JSX.Element;
 export default BottomModal;
