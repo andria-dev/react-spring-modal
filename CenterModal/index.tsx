@@ -31,7 +31,7 @@ function CenterModal({
   className,
   // eslint-disable-next-line react-hooks/rules-of-hooks
   modalTransition = useCenterModalTransition(isOpen),
-  style,
+  style = {},
   ...props
 }: IProps) {
   return (

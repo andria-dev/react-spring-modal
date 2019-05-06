@@ -32,7 +32,7 @@ function BottomModal({
   className,
   // eslint-disable-next-line react-hooks/rules-of-hooks
   modalTransition = useBottomModalTransition(isOpen),
-  style,
+  style = {},
   ...props
 }: IProps) {
   return (
