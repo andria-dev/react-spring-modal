@@ -117,6 +117,12 @@ Shares props with `<BaseModal>`
 | Name            | Type                             | Description                                |
 | --------------- | -------------------------------- | ------------------------------------------ |
 | modalTransition | ReturnType<typeof useTransition> | Replaces the transition used for the modal |
+  
+## FAQ
+
+* Why am I getting `ReferenceError: globalThis is not defined`?
+  
+  You're using this library in an environment that does not support the `globalThis` keyword out-of-the-box. You will need to **use a polyfill for `globalThis`** to fix the error. I recommend that you use [@ungap/global-this](https://github.com/ungap/global-this)
 
 ## License
 
