@@ -48,6 +48,13 @@ function App() {
 }
 ```
 
+You might notice that `<BottomModal>` doesn't render to anything. Due to the use of React DOM's `createPortal` all modals that use `<ModalPortal>` (i.e. the ones packaged with this module) will render to `#modal-root`. You'll need something like this in your HTML:
+
+```html
+<div id="root"></div> <!-- This was probably already here -->
+<div id="modal-root"></div> <!-- This is where modals will render to -->
+```
+
 You can also create your own modal with it's own transition:
 
 ```jsx
