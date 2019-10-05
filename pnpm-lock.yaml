@@ -1,6 +1,6 @@
 dependencies:
   '@chbphone55/classnames': registry.npmjs.org/@chbphone55/classnames/1.0.3
-  react-use: registry.npmjs.org/react-use/8.3.1
+  react-use: registry.npmjs.org/react-use/8.3.1_react-dom@16.8.6+react@16.8.6
   wicg-inert: registry.npmjs.org/wicg-inert/2.1.0
 devDependencies:
   '@types/node': registry.npmjs.org/@types/node/12.0.0
@@ -9,9 +9,9 @@ devDependencies:
   e2e-verdaccio: registry.npmjs.org/e2e-verdaccio/1.0.0
   microbundle: registry.npmjs.org/microbundle/0.11.0
   react: registry.npmjs.org/react/16.8.6
-  react-dom: registry.npmjs.org/react-dom/16.8.6
-  react-spring: registry.npmjs.org/react-spring/8.0.20
-lockfileVersion: 5
+  react-dom: registry.npmjs.org/react-dom/16.8.6_react@16.8.6
+  react-spring: registry.npmjs.org/react-spring/8.0.20_react-dom@16.8.6+react@16.8.6
+lockfileVersion: 5.1
 packages:
   registry.npmjs.org/@babel/code-frame/7.0.0:
     dependencies:
@@ -3068,7 +3068,6 @@ packages:
       tarball: 'https://registry.npmjs.org/js-base64/-/js-base64-2.5.1.tgz'
     version: 2.5.1
   registry.npmjs.org/js-tokens/4.0.0:
-    dev: true
     name: js-tokens
     resolution:
       integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
@@ -3267,7 +3266,6 @@ packages:
   registry.npmjs.org/loose-envify/1.4.0:
     dependencies:
       js-tokens: registry.npmjs.org/js-tokens/4.0.0
-    dev: true
     hasBin: true
     name: loose-envify
     resolution:
@@ -3558,17 +3556,20 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/nan/-/nan-2.13.2.tgz'
     version: 2.13.2
-  registry.npmjs.org/nano-css/5.1.0:
+  registry.npmjs.org/nano-css/5.1.0_react-dom@16.8.6+react@16.8.6:
     dependencies:
       css-tree: registry.npmjs.org/css-tree/1.0.0-alpha.29
       csstype: registry.npmjs.org/csstype/2.6.4
       fastest-stable-stringify: registry.npmjs.org/fastest-stable-stringify/1.0.1
       inline-style-prefixer: registry.npmjs.org/inline-style-prefixer/4.0.2
+      react: registry.npmjs.org/react/16.8.6
+      react-dom: registry.npmjs.org/react-dom/16.8.6_react@16.8.6
       rtl-css-js: registry.npmjs.org/rtl-css-js/1.11.0
       sourcemap-codec: registry.npmjs.org/sourcemap-codec/1.4.4
       stacktrace-js: registry.npmjs.org/stacktrace-js/2.0.0
       stylis: registry.npmjs.org/stylis/3.5.0
     dev: false
+    id: registry.npmjs.org/nano-css/5.1.0
     name: nano-css
     peerDependencies:
       react: '*'
@@ -3725,7 +3726,6 @@ packages:
       tarball: 'https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz'
     version: 1.0.1
   registry.npmjs.org/object-assign/4.1.1:
-    dev: true
     engines:
       node: '>=0.10.0'
     name: object-assign
@@ -4911,7 +4911,6 @@ packages:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
       react-is: registry.npmjs.org/react-is/16.8.6
-    dev: true
     name: prop-types
     resolution:
       integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -4992,13 +4991,14 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/rc/-/rc-1.2.8.tgz'
     version: 1.2.8
-  registry.npmjs.org/react-dom/16.8.6:
+  registry.npmjs.org/react-dom/16.8.6_react@16.8.6:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.8.6
       scheduler: registry.npmjs.org/scheduler/0.13.6
-    dev: true
+    id: registry.npmjs.org/react-dom/16.8.6
     name: react-dom
     peerDependencies:
       react: ^16.0.0
@@ -5016,18 +5016,20 @@ packages:
       tarball: 'https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-2.0.4.tgz'
     version: 2.0.4
   registry.npmjs.org/react-is/16.8.6:
-    dev: true
     name: react-is
     resolution:
       integrity: sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz'
     version: 16.8.6
-  registry.npmjs.org/react-spring/8.0.20:
+  registry.npmjs.org/react-spring/8.0.20_react-dom@16.8.6+react@16.8.6:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.4
       prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.8.6
+      react-dom: registry.npmjs.org/react-dom/16.8.6_react@16.8.6
     dev: true
+    id: registry.npmjs.org/react-spring/8.0.20
     name: react-spring
     peerDependencies:
       react: '>= 16.8.0'
@@ -5037,16 +5039,19 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-spring/-/react-spring-8.0.20.tgz'
     version: 8.0.20
-  registry.npmjs.org/react-use/8.3.1:
+  registry.npmjs.org/react-use/8.3.1_react-dom@16.8.6+react@16.8.6:
     dependencies:
       copy-to-clipboard: registry.npmjs.org/copy-to-clipboard/3.1.0
-      nano-css: registry.npmjs.org/nano-css/5.1.0
+      nano-css: registry.npmjs.org/nano-css/5.1.0_react-dom@16.8.6+react@16.8.6
+      react: registry.npmjs.org/react/16.8.6
+      react-dom: registry.npmjs.org/react-dom/16.8.6_react@16.8.6
       react-fast-compare: registry.npmjs.org/react-fast-compare/2.0.4
-      react-wait: registry.npmjs.org/react-wait/0.3.0
+      react-wait: registry.npmjs.org/react-wait/0.3.0_react@16.8.6
       screenfull: registry.npmjs.org/screenfull/4.2.0
       throttle-debounce: registry.npmjs.org/throttle-debounce/2.1.0
       ts-easing: registry.npmjs.org/ts-easing/0.2.0
     dev: false
+    id: registry.npmjs.org/react-use/8.3.1
     name: react-use
     peerDependencies:
       keyboardjs: '*'
@@ -5058,8 +5063,11 @@ packages:
       registry: 'http://registry.npmjs.com/'
       tarball: 'https://registry.npmjs.org/react-use/-/react-use-8.3.1.tgz'
     version: 8.3.1
-  registry.npmjs.org/react-wait/0.3.0:
+  registry.npmjs.org/react-wait/0.3.0_react@16.8.6:
+    dependencies:
+      react: registry.npmjs.org/react/16.8.6
     dev: false
+    id: registry.npmjs.org/react-wait/0.3.0
     name: react-wait
     peerDependencies:
       react: '>=16.7.0-alpha'
@@ -5074,7 +5082,6 @@ packages:
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
       scheduler: registry.npmjs.org/scheduler/0.13.6
-    dev: true
     engines:
       node: '>=0.10.0'
     name: react
@@ -5640,7 +5647,6 @@ packages:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
-    dev: true
     name: scheduler
     resolution:
       integrity: sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
