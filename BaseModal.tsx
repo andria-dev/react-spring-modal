@@ -27,9 +27,15 @@ export interface IBaseModalProps {
   children: ReactNode;
   isOpen: boolean;
   onRequestClose: () => void;
+  autoFocus?: boolean;
 }
 
-function BaseModal({ isOpen, onRequestClose, children }: IBaseModalProps) {
+function BaseModal({
+  isOpen,
+  onRequestClose,
+  children,
+  autoFocus = true
+}: IBaseModalProps) {
   useLockBodyScroll(isOpen);
 
   const lastActiveElement = useRef<HTMLElement | null>(null);
@@ -41,7 +47,7 @@ function BaseModal({ isOpen, onRequestClose, children }: IBaseModalProps) {
     enter: { '--opacity': 0.5 },
     leave: { '--opacity': 0 },
     onRest() {
-      if (modalRef.current && isOpen) {
+      if (autoFocus && modalRef.current && isOpen) {
         const focusableElements = getFocusable(modalRef.current);
         if (focusableElements.length) {
           focusableElements[0].focus();

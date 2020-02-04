@@ -28,6 +28,7 @@ export function useBottomModalTransition(
 function BottomModal({
   children,
   isOpen,
+  autoFocus,
   onRequestClose,
   className,
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -36,7 +37,7 @@ function BottomModal({
   ...props
 }: IProps) {
   return (
-    <BaseModal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <BaseModal isOpen={isOpen} onRequestClose={onRequestClose} autoFocus={autoFocus}>
       {modalTransition.map(({ item, key, props: transitionStyles }) =>
         item ? (
           <animated.div

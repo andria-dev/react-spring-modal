@@ -28,6 +28,7 @@ export function useCenterModalTransition(
 function CenterModal({
   isOpen,
   onRequestClose,
+  autoFocus,
   className,
   // eslint-disable-next-line react-hooks/rules-of-hooks
   modalTransition = useCenterModalTransition(isOpen),
@@ -35,7 +36,7 @@ function CenterModal({
   ...props
 }: IProps) {
   return (
-    <BaseModal isOpen={isOpen} onRequestClose={onRequestClose}>
+    <BaseModal isOpen={isOpen} onRequestClose={onRequestClose} autoFocus={autoFocus}>
       {modalTransition.map(({ item, key, props: transitionStyles }) =>
         item ? (
           <animated.div
