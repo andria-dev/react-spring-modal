@@ -30,7 +30,7 @@ yarn add react-spring-modal react react-dom react-spring
 
 To use this package you'll need to choose a modal and import the CSS file.
 
-```jsx
+```typescript jsx
 import { useState } from 'react';
 import { BottomModal } from 'react-spring-modal';
 import 'react-spring-modal/dist/index.css';
@@ -57,7 +57,7 @@ You might notice that `<BottomModal>` doesn't render to anything. Due to the use
 
 You can also create your own modal with it's own transition:
 
-```jsx
+```typescript jsx
 import { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
 import { BaseModal } from 'react-spring-modal';
@@ -111,6 +111,7 @@ For custom modals `<BaseModal>` should be used as it handles accessibility via t
 | -------------- | ---------- | ------------------------------------------------------------------------------ |
 | isOpen         | Boolean    | Used to determine open and closed state for `useTransition`                    |
 | onRequestClose | () => void | Used to close the modal when clicking on the backdrop or pressing ESC (escape) |
+| autoFocus      | Boolean    | When true, this will focus on the first focusable element when the modal opens |
 
 #### `<BottomModal>` and `<CenterModal>`
 
@@ -130,6 +131,15 @@ Shares props with `<BaseModal>`
 * Why am I getting `ReferenceError: globalThis is not defined`?
   
   You're using this library in an environment that does not support the `globalThis` keyword out-of-the-box. You will need to **use a polyfill for `globalThis`** to fix the error. I recommend that you use [@ungap/global-this](https://github.com/ungap/global-this)
+
+* How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
+
+  The solution here is to set the property `autoFocus` on your `<BaseModal>` to `false` like so:
+```typescript jsx
+<BaseModal autoFocus={false} isOpen={...} onRequestClose={...}>
+  ...
+</BaseModal>
+```
 
 ## License
 
