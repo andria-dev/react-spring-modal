@@ -50,7 +50,7 @@
     "react-spring": "~8.0.20"
   },
   "dependencies": {
-    "@chbphone55/classnames": "^1.0.3",
+    "@chbphone55/classnames": "^2.0.0",
     "react-use": "^8.3.1",
     "wicg-inert": "^2.1.0"
   }

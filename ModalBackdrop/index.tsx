@@ -1,4 +1,4 @@
-import classNames from '@chbphone55/classnames';
+import { classNames } from '@chbphone55/classnames';
 import React, { forwardRef, useCallback } from 'react';
 import { animated } from 'react-spring';
 import './style.css';

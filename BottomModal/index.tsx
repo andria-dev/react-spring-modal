@@ -2,7 +2,7 @@ import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import BaseModal, { IBaseModalProps } from '../BaseModal';
 
-import classNames from '@chbphone55/classnames';
+import { classNames } from '@chbphone55/classnames';
 import { ObjectOf } from '../generic-types';
 import './style.css';
 

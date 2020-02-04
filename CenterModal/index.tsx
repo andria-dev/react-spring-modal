@@ -3,7 +3,7 @@ import { useTransition, animated } from 'react-spring';
 import { ObjectOf } from '../generic-types';
 import BaseModal, { IBaseModalProps } from '../BaseModal';
 
-import classNames from '@chbphone55/classnames';
+import { classNames } from '@chbphone55/classnames';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
