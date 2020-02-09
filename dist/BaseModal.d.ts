@@ -5,5 +5,4 @@ export interface IBaseModalProps {
     onRequestClose: () => void;
     autoFocus?: boolean;
 }
-declare function BaseModal({ isOpen, onRequestClose, children, autoFocus }: IBaseModalProps): JSX.Element;
-export default BaseModal;
+export declare function BaseModal({ isOpen, onRequestClose, children, autoFocus }: IBaseModalProps): JSX.Element;

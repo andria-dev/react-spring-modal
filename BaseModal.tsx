@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useRef } from 'react';
 import { useTransition } from 'react-spring';
-import ModalBackdrop from './ModalBackdrop';
-import ModalPortal from './ModalPortal';
+import { ModalBackdrop } from './ModalBackdrop';
+import { ModalPortal } from './ModalPortal';
 
 import useLockBodyScroll from 'react-use/lib/useLockBodyScroll';
 
@@ -30,7 +30,7 @@ export interface IBaseModalProps {
   autoFocus?: boolean;
 }
 
-function BaseModal({
+export function BaseModal({
   isOpen,
   onRequestClose,
   children,
@@ -117,5 +117,3 @@ function BaseModal({
     </ModalPortal>
   );
 }
-
-export default BaseModal;

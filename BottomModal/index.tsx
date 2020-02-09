@@ -1,13 +1,13 @@
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
-import BaseModal, { IBaseModalProps } from '../BaseModal';
+import { BaseModal, IBaseModalProps } from '../BaseModal';
 
 import { classNames } from '@chbphone55/classnames';
 import { ObjectOf } from '../generic-types';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-  modalTransition?: ReturnType<typeof useTransition>;
+  modalTransition: ReturnType<typeof useTransition>;
 }
 
 export function useBottomModalTransition(
@@ -25,14 +25,13 @@ export function useBottomModalTransition(
   });
 }
 
-function BottomModal({
+export function BottomModal({
   children,
   isOpen,
   autoFocus,
   onRequestClose,
   className,
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  modalTransition = useBottomModalTransition(isOpen),
+  modalTransition,
   style = {},
   ...props
 }: IProps) {
@@ -53,5 +52,3 @@ function BottomModal({
     </BaseModal>
   );
 }
-
-export default BottomModal;

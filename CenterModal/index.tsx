@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTransition, animated } from 'react-spring';
 import { ObjectOf } from '../generic-types';
-import BaseModal, { IBaseModalProps } from '../BaseModal';
+import { BaseModal, IBaseModalProps } from '../BaseModal';
 
 import { classNames } from '@chbphone55/classnames';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-  modalTransition?: ReturnType<typeof useTransition>;
+  modalTransition: ReturnType<typeof useTransition>;
 }
 
 export function useCenterModalTransition(
@@ -25,13 +25,12 @@ export function useCenterModalTransition(
   });
 }
 
-function CenterModal({
+export function CenterModal({
   isOpen,
   onRequestClose,
   autoFocus,
   className,
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  modalTransition = useCenterModalTransition(isOpen),
+  modalTransition,
   style = {},
   ...props
 }: IProps) {
@@ -50,5 +49,3 @@ function CenterModal({
     </BaseModal>
   );
 }
-
-export default CenterModal;

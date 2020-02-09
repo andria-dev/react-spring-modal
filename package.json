@@ -13,7 +13,7 @@
   "scripts": {
     "build": "microbundle --jsx=React.createElement --raw",
     "test:publish": "e2e-verdaccio",
-    "prepublish": "pnpm run build"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",

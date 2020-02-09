@@ -9,7 +9,7 @@ const modalRoot = globalThis.document
   ? document.querySelector('#modal-root')
   : null;
 
-function ModalPortal({ children }: IProps) {
+export function ModalPortal({ children }: IProps) {
   const node = useMemo(
     () => (globalThis.document ? document.createElement('div') : null),
     []
@@ -28,5 +28,3 @@ function ModalPortal({ children }: IProps) {
 
   return node ? createPortal(children, node) : null;
 }
-
-export default ModalPortal;
