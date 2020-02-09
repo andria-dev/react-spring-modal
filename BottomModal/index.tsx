@@ -7,7 +7,7 @@ import { ObjectOf } from '../generic-types';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-  modalTransition: ReturnType<typeof useTransition>;
+  modalTransition?: ReturnType<typeof useTransition>;
 }
 
 export function useBottomModalTransition(
@@ -31,7 +31,7 @@ export function BottomModal({
   autoFocus,
   onRequestClose,
   className,
-  modalTransition,
+  modalTransition = useBottomModalTransition(isOpen),
   style = {},
   ...props
 }: IProps) {

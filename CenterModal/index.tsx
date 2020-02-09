@@ -7,7 +7,7 @@ import { classNames } from '@chbphone55/classnames';
 import './style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
-  modalTransition: ReturnType<typeof useTransition>;
+  modalTransition?: ReturnType<typeof useTransition>;
 }
 
 export function useCenterModalTransition(
@@ -30,7 +30,7 @@ export function CenterModal({
   onRequestClose,
   autoFocus,
   className,
-  modalTransition,
+  modalTransition = useCenterModalTransition(isOpen),
   style = {},
   ...props
 }: IProps) {
