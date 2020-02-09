@@ -1,3 +1,0 @@
-.ModalBackdrop{position:fixed;left:0;top:0;width:100%;height:100vh;--opacity:0.5;background-color:hsla(0,0%,0%,var(--opacity));overflow:hidden}.dark-mode .ModalBackdrop{background-color:hsla(0,0%,50%,calc(var(--opacity)*1.4))}
-.CenterModal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-.BottomModal{position:absolute;bottom:0;left:50%;--padding:2rem;width:calc(100% - var(--padding)*2);max-width:40rem;padding:var(--padding);background-color:#fff;--radius:0.5rem;border-top-left-radius:var(--radius);border-top-right-radius:var(--radius);z-index:1000}.dark-mode .BottomModal{background-color:#000}
