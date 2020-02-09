@@ -2,3 +2,5 @@ node_modules/
 .vscode/
 .*_cache_*/
 .idea/
+dist/
+
