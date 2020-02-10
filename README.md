@@ -128,6 +128,10 @@ Shares props with `<BaseModal>`
   
 ## FAQ
 
+* Why won't my modal render when `isOpen` is set to `true`?
+
+  You most likely haven't placed a `<div id="modal-root"></div>` within your HTML file. Without this, the modal doesn't know where to render to. If that doesn't fix the issue, feel free to open a new issue on this repository.
+
 * Why am I getting `ReferenceError: globalThis is not defined`?
   
   You're using this library in an environment that does not support the `globalThis` keyword out-of-the-box. You will need to **use a polyfill for `globalThis`** to fix the error. I recommend that you use [@ungap/global-this](https://github.com/ungap/global-this)
