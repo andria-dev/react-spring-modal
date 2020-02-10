@@ -134,12 +134,13 @@ Shares props with `<BaseModal>`
 
 * How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
 
-  The solution here is to set the property `autoFocus` on your `<BaseModal>` to `false` like so:
-```typescript jsx
-<BaseModal autoFocus={false} isOpen={...} onRequestClose={...}>
-  ...
-</BaseModal>
-```
+  The solution here is to set the property `autoFocus` on your `<BaseModal>`, `<CenterModal>`, or `<BottomModal>` to `false` like so:
+
+  ```typescript jsx
+  <BaseModal autoFocus={false} isOpen={...} onRequestClose={...}>
+    ...
+  </BaseModal>
+  ```
 
 ## License
 
