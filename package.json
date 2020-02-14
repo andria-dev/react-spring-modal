@@ -11,9 +11,7 @@
     "dist/"
   ],
   "scripts": {
-    "build": "rm -rf dist/ && microbundle --jsx=React.createElement --raw",
-    "test:publish": "e2e-verdaccio",
-    "prepublish": "npm run build"
+    "build": "rm -rf dist/ && microbundle --jsx=React.createElement --raw"
   },
   "repository": {
     "type": "git",
