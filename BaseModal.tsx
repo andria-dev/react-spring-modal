@@ -23,6 +23,28 @@ function getFocusable(element: HTMLElement): NodeListOf<HTMLElement> {
   );
 }
 
+let openModals: HTMLElement[] = [];
+const openModalsSet: Set<HTMLElement> = new Set();
+function deactivateModalsOtherThan(modal: HTMLElement) {
+  if (openModalsSet.has(modal)) {
+    return;
+  }
+
+  openModals.forEach(currentModal => {
+    currentModal.setAttribute('inert', '');
+  });
+  openModals.push(modal);
+  openModalsSet.add(modal);
+}
+
+function activateLastModal(modal: HTMLElement) {
+  openModals = openModals.filter(currentModal => currentModal !== modal);
+  openModalsSet.delete(modal);
+  if (openModals.length) {
+    openModals[openModals.length - 1].removeAttribute('inert');
+  }
+}
+
 export interface IBaseModalProps {
   children: ReactNode;
   isOpen: boolean;
@@ -40,6 +62,14 @@ export function BaseModal({
 
   const lastActiveElement = useRef<HTMLElement | null>(null);
   const modalRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (isOpen && modalRef.current) {
+      deactivateModalsOtherThan(modalRef.current);
+    } else if (modalRef.current) {
+      activateLastModal(modalRef.current);
+    }
+  }, [isOpen, modalRef.current])
 
   const backdropTransition = useTransition(isOpen, null, {
     '--opacity': 0,
