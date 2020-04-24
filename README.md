@@ -28,10 +28,12 @@ yarn add react-spring-modal react react-dom react-spring
 
 ### Example
 
-To use this package you'll need to choose a modal and import the CSS file.
+You can [view comprehensive live examples on CodeSandbox.io](https://codesandbox.io/embed/react-spring-modalall-b3wp2?fontsize=14&hidenavigation=1&theme=dark)
+
+To use this package you'll need to choose a modal and import the CSS file. In our example, we'll be using `<BottomModal>` to animate the html `<h1>The Modal</h1>` up from the bottom of the screen with a white background.
 
 ```typescript jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BottomModal } from 'react-spring-modal';
 import 'react-spring-modal/dist/index.css';
 
@@ -40,7 +42,15 @@ function App() {
   return (
     <>
       <button onClick={() => setOpen(true)}>Open modal</button>
-      <BottomModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
+      <BottomModal
+        isOpen={isOpen}
+        onRequestClose={() => setOpen(false)}
+        style={{
+          backgroundColor: 'white',
+          padding: '1rem 2rem',
+          borderRadius: '0.25rem'
+        }}
+      >
         <h1>The Modal</h1>
       </BottomModal>
     </>
@@ -55,32 +65,50 @@ You might notice that `<BottomModal>` doesn't render to anything. Due to the use
 <div id="modal-root"></div> <!-- This is where modals will render to -->
 ```
 
-You can also create your own modal with it's own transition:
+You can also create your own modal with it's own transition by utilizing the component that both `<CenterModal>` and `<BottomModal>` are built on: `<BaseModal>`. It takes the same arguments as the previous two but provides no built in positioning or animation (besides the `<ModalBackdrop>`). Here is an example of creating your own animated modal:
 
 ```typescript jsx
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTransition, animated } from 'react-spring';
 import { BaseModal } from 'react-spring-modal';
 
-function MyModal() {
+/**
+ * We're going to animate the background color from
+ * a light red (lightcoral) to a light blue (lightcyan)
+ *
+ * We're also going to slide it down from the top right
+ * and then back up when we close it
+ */
+export function Custom() {
   const [isOpen, setOpen] = useState(false);
   const transition = useTransition(isOpen, null, {
-    from: { transform: 'scale(0)' },
-    enter: { transform: 'scale(1)' },
-    leave: { transform: 'scale(0)' }
+    from: { background: 'lightcoral', transform: 'translateY(-100%)' },
+    enter: { background: 'lightcyan', transform: 'translateY(0)' },
+    leave: { background: 'lightcoral', transform: 'translateY(-100%)' }
   });
 
+  const staticStyles = {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    padding: '1rem 2rem',
+    borderRadius: '0.25rem'
+  };
+
   return (
-    <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
-      {transition.map(
-        ({ item, key, props }) =>
-          item && (
-            <animated.div key={key} style={props}>
-              <h1>My Modal</h1>
-            </animated.div>
-          )
-      )}
-    </BaseModal>
+    <>
+      <button onClick={() => setOpen(true)}>Open custom modal</button>
+      <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
+        {transition.map(
+          ({ item, key, props }) =>
+            item && (
+              <animated.div key={key} style={{ ...props, ...staticStyles }}>
+                <h1 style={{ fontSize: '1rem' }}>My Custom Modal</h1>
+              </animated.div>
+            )
+        )}
+      </BaseModal>
+    </>
   );
 }
 ```
@@ -142,7 +170,7 @@ Shares props with `<BaseModal>`
 
   ```typescript jsx
   <BaseModal autoFocus={false} isOpen={...} onRequestClose={...}>
-    ...
+    {/* ... */}
   </BaseModal>
   ```
 
