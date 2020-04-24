@@ -8,6 +8,8 @@ A component library for animatable and accessible modals built with react-spring
 <br>
 ✅ Prevents focus on covered content via `inert` attribute; includes polyfill
 <br>
+✅ Handles other modal accessibility issues as well (i.e. nested modals, initial focus, and focus restoration)
+<br>
 ✅ Animatable via `react-spring`'s `useTransition`
 
 ## Usage
@@ -37,11 +39,17 @@ import React, { useState } from 'react';
 import { BottomModal } from 'react-spring-modal';
 import 'react-spring-modal/dist/index.css';
 
-function App() {
+/**
+ * Renders a white modal that slides up from the bottom and back down when leaving.
+ *
+ * Has a built-in max-width for larger devices.
+ * The max-width for smaller devices is the entire screen.
+ */
+export function Bottom() {
   const [isOpen, setOpen] = useState(false);
   return (
     <>
-      <button onClick={() => setOpen(true)}>Open modal</button>
+      <button onClick={() => setOpen(true)}>Open bottom modal</button>
       <BottomModal
         isOpen={isOpen}
         onRequestClose={() => setOpen(false)}
@@ -51,7 +59,7 @@ function App() {
           borderRadius: '0.25rem'
         }}
       >
-        <h1>The Modal</h1>
+        <h1>My Bottom Modal</h1>
       </BottomModal>
     </>
   );
