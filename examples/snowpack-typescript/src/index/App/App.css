@@ -1,0 +1,78 @@
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+.App {
+  padding: 2rem;
+}
+
+.App > h1 {
+  margin-bottom: 0.5rem;
+}
+
+.App > p:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.App__sign-up-button {
+  padding: 0.5rem 1.35rem;
+  cursor: pointer;
+}
+.App__sign-up-modal {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.25rem;
+}
+.App__sign-up-modal h1 {
+  margin-bottom: 0.5rem;
+}
+
+.App__sign-up-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.App__sign-up-form input {
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.App__sign-up-form button {
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.error {
+  color: #950000;
+  background-color: rgba(215, 0, 0, 0.24);
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.App__sign-up-form--error {
+  margin-bottom: 1rem;
+}
+
+.App__settings-button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: #f4f4f4;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.App__settings-button:hover {
+  background-color: #dfdfdf;
+  border-color: #ccc;
+}
+.App__settings-button:focus {
+  outline: none;
+  border-color: black;
+}
+.App__settings-button:active {
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  background-color: #f4f4f4;
+}

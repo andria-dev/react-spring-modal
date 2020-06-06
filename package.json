@@ -1,55 +1,16 @@
 {
-  "name": "react-spring-modal",
-  "version": "1.0.8",
-  "description": "Animatable and accessible modals built with react-spring",
-  "source": "index.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.m.js",
-  "unpkg": "dist/index.umd.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist/"
+  "name": "workspaces",
+  "private": true,
+  "workspaces": [
+    "react-spring-modal",
+    "examples/*"
   ],
   "scripts": {
-    "build": "rm -rf dist/ && microbundle --jsx=React.createElement --raw"
+    "build": "yarn workspace react-spring-modal build",
+    "example:ts": "yarn workspace snowpack-typescript start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ChrisBrownie55/react-spring-modal.git"
-  },
-  "keywords": [
-    "react",
-    "react-spring",
-    "modal",
-    "a11y",
-    "animation",
-    "transition",
-    "accessibility"
-  ],
-  "author": "Christopher H. Brown <chbphone55@gmail.com> (https://chrisbrown.netlify.com)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ChrisBrownie55/react-spring-modal/issues"
-  },
-  "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
   "devDependencies": {
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.8.15",
-    "@types/react-dom": "^16.8.4",
-    "e2e-verdaccio": "^1.0.0",
-    "microbundle": "^0.11.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-spring": "^8.0.20"
-  },
-  "peerDependencies": {
-    "react": "~16.8.6",
-    "react-dom": "~16.8.6",
-    "react-spring": "~8.0.20"
-  },
-  "dependencies": {
-    "@chbphone55/classnames": "^2.0.0",
-    "react-use": "^8.3.1",
-    "wicg-inert": "^2.1.0"
+    "destiny": "^0.7.0",
+    "shx": "^0.3.2"
   }
 }
