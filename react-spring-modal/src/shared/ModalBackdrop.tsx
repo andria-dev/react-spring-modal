@@ -1,7 +1,7 @@
 import { classNames } from '@chbphone55/classnames';
 import React, { forwardRef, useCallback } from 'react';
 import { animated } from 'react-spring';
-import './style.css';
+import '../index/ModalBackdrop/style.css';
 
 export const ModalBackdrop = forwardRef(
   ({ className, onClick, ...props }: any, ref: any) => {

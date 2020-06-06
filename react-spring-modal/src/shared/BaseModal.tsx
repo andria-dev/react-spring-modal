@@ -6,7 +6,8 @@ import { ModalPortal } from './ModalPortal';
 import useLockBodyScroll from 'react-use/lib/useLockBodyScroll';
 
 if (globalThis.document) {
-  require('wicg-inert');
+  // @ts-ignore
+  import('wicg-inert');
 }
 
 let root: HTMLElement | null = null;

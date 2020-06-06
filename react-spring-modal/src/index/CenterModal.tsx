@@ -1,37 +1,36 @@
 import React from 'react';
-import { animated, useTransition } from 'react-spring';
-import { BaseModal, IBaseModalProps } from '../BaseModal';
+import { useTransition, animated } from 'react-spring';
+import { ObjectOf } from './shared/generic-types';
+import { BaseModal, IBaseModalProps } from '../shared/BaseModal';
 
 import { classNames } from '@chbphone55/classnames';
-import { ObjectOf } from '../generic-types';
-import './style.css';
+import './CenterModal/style.css';
 
 interface IProps extends IBaseModalProps, ObjectOf<any> {
   modalTransition?: ReturnType<typeof useTransition>;
 }
 
-export function useBottomModalTransition(
+export function useCenterModalTransition(
   isOpen: boolean,
   props: ObjectOf<any> = {}
 ) {
   return useTransition(isOpen, null, {
     // @ts-ignore
-    from: { transform: 'translateY(100%) translateX(-50%)' },
+    from: { opacity: 0 },
     // @ts-ignore
-    enter: { transform: 'translateY(0%) translateX(-50%)' },
+    enter: { opacity: 1 },
     // @ts-ignore
-    leave: { transform: 'translateY(100%) translateX(-50%)' },
+    leave: { opacity: 0 },
     ...props
   });
 }
 
-export function BottomModal({
-  children,
+export function CenterModal({
   isOpen,
-  autoFocus,
   onRequestClose,
+  autoFocus,
   className,
-  modalTransition = useBottomModalTransition(isOpen),
+  modalTransition = useCenterModalTransition(isOpen),
   style = {},
   ...props
 }: IProps) {
@@ -40,13 +39,11 @@ export function BottomModal({
       {modalTransition.map(({ item, key, props: transitionStyles }) =>
         item ? (
           <animated.div
-            className={classNames('BottomModal shadow-lg', className)}
             key={key}
             style={{ ...transitionStyles, ...style }}
+            className={classNames('CenterModal shadow-lg', className)}
             {...props}
-          >
-            {children}
-          </animated.div>
+          />
         ) : null
       )}
     </BaseModal>
