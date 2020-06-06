@@ -13,7 +13,7 @@
   "scripts": {
     "clean:dist": "shx rm -rf dist/",
     "bundle": "microbundle --jsx=React.createElement --raw",
-    "populate-typings": "shx cp dist/index.d.ts dist/index.m.d.ts",
+    "populate-typings": "shx cp dist/index.d.ts dist/index.m.d.ts && shx cp dist/index.d.ts dist/index.umd.d.ts",
     "build": "yarn clean:dist && yarn bundle && yarn populate-typings",
     "format:structure": "destiny -w src/**/*.*"
   },
