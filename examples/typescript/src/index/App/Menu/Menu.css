@@ -1,0 +1,65 @@
+.Menu__button--circle {
+  position: absolute;
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.Menu__button--circle:focus {
+  outline: none;
+  border: 1px solid black;
+}
+
+.Menu__button--open {
+  left: 0.5rem;
+  top: 0.5rem;
+}
+.Menu__button--close {
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+.Menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 15rem;
+  height: 100vh;
+
+  background-color: white;
+}
+
+.Menu__link {
+  width: calc(70% - 4px);
+  padding: 0.5rem 0;
+  border: solid 2px black;
+  transition: background-color 0.1s ease-out, color 0.1s ease-out;
+
+  color: white;
+  background-color: black;
+
+  text-align: center;
+  text-decoration: none;
+}
+
+.Menu__link:hover {
+  background-color: #444;
+}
+
+.Menu__link:focus {
+  color: black;
+  background-color: white;
+}
+
+.Menu__link:not(:last-of-type) {
+  margin-bottom: 2rem;
+}

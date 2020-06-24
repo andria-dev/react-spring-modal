@@ -1,0 +1,19 @@
+.SignUp__open-button {
+  padding: 0.5rem 1.35rem;
+  cursor: pointer;
+}
+
+.SignUp {
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.25rem;
+}
+
+.SignUp h1 {
+  margin-bottom: 0.5rem;
+}
+
+.SignUp__form {
+  margin-top: 1.5rem;
+}
+

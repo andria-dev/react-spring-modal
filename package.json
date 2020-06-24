@@ -11,6 +11,10 @@
   },
   "devDependencies": {
     "destiny": "^0.7.0",
+    "prettier": "^2.0.5",
     "shx": "^0.3.2"
+  },
+  "dependencies": {
+    "typescript": "^3.9.5"
   }
 }

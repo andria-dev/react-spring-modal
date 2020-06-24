@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Form fieldset {
+  border: none;
+  padding-left: 0;
+}
+
+.Form fieldset:not(:first-child) {
+  margin-top: 0.25rem;
+}
+
+.Form fieldset input {
+  margin-left: 1rem;
+}
+
+.Form legend {
+  font-weight: bold;
+}
+
+.Form input {
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.Form input[type="checkbox"],
+.Form input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.Form button {
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+.Form--error {
+  margin-bottom: 1rem;
+}
+
+.Form__actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.Form__actions > * {
+  flex-grow: 1;
+}
+
+.Form__actions > *:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.error {
+  color: #950000;
+  background-color: rgba(215, 0, 0, 0.24);
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.5rem;
+}
