@@ -1,0 +1,68 @@
+{
+  "name": "react-spring-modal",
+  "version": "1.0.8",
+  "description": "Animatable and accessible modals built with react-spring and @reach/dialog",
+  "author": "Christopher H. Brown <chris_brown@hey.com> (https://chrisbrownie.dev)",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "react-spring",
+    "modal",
+    "a11y",
+    "animation",
+    "transition",
+    "accessibility"
+  ],
+  "homepage": "https://github.com/ChrisBrownie55/react-spring-modal#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisBrownie55/react-spring-modal.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@chrisbrownie55"
+  },
+  "bugs": {
+    "url": "https://github.com/ChrisBrownie55/react-spring-modal/issues"
+  },
+  "source": "./src/index.tsx",
+  "main": "./dist/index.commonjs.js",
+  "module": "./dist/index.module.js",
+  "exports": "./dist/index.modern.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist",
+    "./src"
+  ],
+  "scripts": {
+    "emit": "",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "format:structure": "destiny -w src/**/*.*",
+    "format:code": "prettier --write src",
+    "format:lint": "eslint --fix",
+    "format": "yarn format:structure && yarn format:code && yarn format:lint"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^8.1.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "@types/babel__core": "^7.1.12",
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "react-spring": "^8.0.27",
+    "rollup": "^2.36.1",
+    "typescript": "^4.2.0-beta"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-spring": ">=8"
+  },
+  "dependencies": {
+    "@reach/auto-id": "^0.12.1",
+    "@reach/dialog": ">=0.12"
+  }
+}

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs';
 import * as React from 'react';
 import { FormEvent } from 'react';
-import { BottomModal } from 'react-spring-modal/dist/index.m.js';
+import { BottomModal } from 'react-spring-modal/dist/commonjs/index';
 import { StateProps } from '../shared/types';
 import './Settings/Settings.css';
 
@@ -15,10 +15,7 @@ export function Settings({ state, setState }: StateProps) {
 
     const formData = new FormData(event.target as HTMLFormElement);
     if (window.localStorage) {
-      localStorage.setItem(
-        'use-typescript',
-        formData.get('use-typescript') as string,
-      );
+      localStorage.setItem('use-typescript', formData.get('use-typescript') as string);
       localStorage.setItem('monster', formData.get('monster') as string);
     }
 
@@ -40,11 +37,7 @@ export function Settings({ state, setState }: StateProps) {
         <FontAwesomeIcon icon={faCogs} />
       </button>
 
-      <BottomModal
-        className="Settings"
-        isOpen={state.type === 'settings'}
-        onRequestClose={close}
-      >
+      <BottomModal contentProps={{ className: 'Settings' }} isOpen={state.type === 'settings'} onDismiss={close}>
         <h1>Settings</h1>
         <p>Modify your settings here and make this site your own.</p>
 
@@ -62,13 +55,7 @@ export function Settings({ state, setState }: StateProps) {
           <fieldset>
             <legend>Choose your monster:</legend>
 
-            <input
-              type="radio"
-              id="kraken"
-              name="monster"
-              value="kraken"
-              defaultChecked={monster === 'kraken'}
-            />
+            <input type="radio" id="kraken" name="monster" value="kraken" defaultChecked={monster === 'kraken'} />
             <label htmlFor="kraken">Kraken</label>
             <br />
 
@@ -82,13 +69,7 @@ export function Settings({ state, setState }: StateProps) {
             <label htmlFor="sasquatch">Sasquatch</label>
             <br />
 
-            <input
-              type="radio"
-              id="mothman"
-              name="monster"
-              value="mothman"
-              defaultChecked={monster === 'mothman'}
-            />
+            <input type="radio" id="mothman" name="monster" value="mothman" defaultChecked={monster === 'mothman'} />
             <label htmlFor="mothman">Mothman</label>
           </fieldset>
 

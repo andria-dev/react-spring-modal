@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CenterModal } from 'react-spring-modal/dist/index.m.js';
+import { CenterModal } from 'react-spring-modal/dist/commonjs/index';
 import { FormEvent } from 'react';
 import { StateProps } from '../shared/types';
 import './SignUp/SignUp.css';
@@ -14,7 +14,7 @@ export function SignUp({ state, setState }: StateProps) {
       setState({
         type: 'invalid-sign-up',
         errorWith: 'username',
-        message: `Username "${username}" has already been taken.`,
+        message: `Username "${username}" has already been taken.`
       });
     } else {
       setState({ type: 'idle' });
@@ -32,24 +32,17 @@ export function SignUp({ state, setState }: StateProps) {
 
   return (
     <>
-      <button
-        className="SignUp__open-button"
-        onClick={() => setState({ type: 'sign-up' })}
-      >
+      <button className="SignUp__open-button" onClick={() => setState({ type: 'sign-up' })}>
         Sign Up Now
       </button>
 
       <CenterModal
         isOpen={state.type === 'sign-up' || state.type === 'invalid-sign-up'}
-        onRequestClose={close}
-        className="SignUp"
-        data-testid="sign-up-modal"
+        onDismiss={close}
+        contentProps={{ className: 'SignUp', 'data-testid': 'sign-up-modal' }}
       >
         <h1>Sign Up</h1>
-        <p>
-          Join our team now! Make sure you choose a secure password and unique
-          username that suits your style.
-        </p>
+        <p>Join our team now! Make sure you choose a secure password and unique username that suits your style.</p>
         <form className="SignUp__form Form" onSubmit={handleSubmit}>
           <label htmlFor="username-input">Username</label>
           <input

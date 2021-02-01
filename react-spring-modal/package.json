@@ -1,5 +1,5 @@
 {
-  "name": "react-spring-modal",
+  "name": "old-react-spring-modal",
   "version": "1.0.8",
   "description": "Animatable and accessible modals built with react-spring",
   "source": "src/index.ts",

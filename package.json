@@ -2,8 +2,9 @@
   "name": "workspaces",
   "private": true,
   "workspaces": [
-    "react-spring-modal",
-    "examples/*"
+    "./spring",
+    "./examples/*",
+    "./test"
   ],
   "scripts": {
     "build": "yarn workspace react-spring-modal build",
@@ -12,9 +13,12 @@
   "devDependencies": {
     "destiny": "^0.7.0",
     "prettier": "^2.0.5",
-    "shx": "^0.3.2"
-  },
-  "dependencies": {
+    "eslint": "^7.17.0",
     "typescript": "^3.9.5"
+  },
+  "dependencies": {},
+  "volta": {
+    "node": "14.15.4",
+    "npm": "7.4.3"
   }
 }

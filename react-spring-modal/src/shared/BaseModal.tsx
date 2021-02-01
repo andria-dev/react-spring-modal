@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { useTransition } from 'react-spring';
 import { ModalBackdrop } from './ModalBackdrop';
 import { ModalPortal } from './ModalPortal';

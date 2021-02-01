@@ -1,42 +1,42 @@
 import * as React from 'react';
-import {StateProps} from '../shared/types';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
-import {animated, useTransition} from 'react-spring';
-import {BaseModal} from 'react-spring-modal/dist/index.m.js';
+import { StateProps } from '../shared/types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { animated, useTransition } from 'react-spring';
+import { BaseModal } from 'react-spring-modal/dist/commonjs/index';
 import './Menu/Menu.css';
-import {faTimes} from "@fortawesome/free-solid-svg-icons/faTimes";
+import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-export function Menu({state, setState}: StateProps) {
+export function Menu({ state, setState }: StateProps) {
   const isOpen = state.type === 'menu';
   const transition = useTransition(isOpen, null, {
-    from: {transform: 'translateX(-100%)'},
-    enter: {transform: 'translateX(0)'},
-    leave: {transform: 'translateX(-100%)'},
+    from: { transform: 'translateX(-100%)' },
+    enter: { transform: 'translateX(0)' },
+    leave: { transform: 'translateX(-100%)' }
   });
 
   function close() {
-    setState({type: 'idle'});
+    setState({ type: 'idle' });
   }
 
   return (
     <>
       <button
         className="Menu__button--circle Menu__button--open"
-        onClick={() => setState({type: 'menu'})}
+        onClick={() => setState({ type: 'menu' })}
         title="Open navigation menu"
         aria-label="Open navigation menu"
       >
-        <FontAwesomeIcon icon={faBars}/>
+        <FontAwesomeIcon icon={faBars} />
       </button>
 
-      <BaseModal isOpen={isOpen} onRequestClose={close}>
+      {/* <BaseModal isOpen={isOpen} onDismiss={close}>
         {transition.map(
-          ({item, key, props}) =>
+          ({ item, key, props }) =>
             item && (
               <animated.div key={key} style={props} className="Menu">
                 <button onClick={close} className="Menu__button--circle Menu__button--close">
-                  <FontAwesomeIcon icon={faTimes}/>
+                  <FontAwesomeIcon icon={faTimes} />
                 </button>
                 <a className="Menu__link" href="#" onClick={close}>
                   Home
@@ -54,9 +54,9 @@ export function Menu({state, setState}: StateProps) {
                   Jobs
                 </a>
               </animated.div>
-            ),
+            )
         )}
-      </BaseModal>
+      </BaseModal> */}
     </>
   );
 }

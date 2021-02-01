@@ -1,4 +1,3 @@
-import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import { BaseModal, IBaseModalProps } from '../shared/BaseModal';
 

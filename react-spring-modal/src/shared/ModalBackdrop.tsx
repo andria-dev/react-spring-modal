@@ -1,5 +1,5 @@
 import { classNames } from '@chbphone55/classnames';
-import React, { forwardRef, useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 import { animated } from 'react-spring';
 import '../index/ModalBackdrop/style.css';
 
