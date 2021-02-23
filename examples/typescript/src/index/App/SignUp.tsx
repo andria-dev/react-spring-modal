@@ -36,7 +36,7 @@ export function SignUp({ state, setState }: StateProps) {
         Sign Up Now
       </button>
 
-      <CenterModal
+      {/* <CenterModal
         isOpen={state.type === 'sign-up' || state.type === 'invalid-sign-up'}
         onDismiss={close}
         contentProps={{ className: 'SignUp', 'data-testid': 'sign-up-modal' }}
@@ -71,7 +71,7 @@ export function SignUp({ state, setState }: StateProps) {
             </button>
           </section>
         </form>
-      </CenterModal>
+      </CenterModal> */}
     </>
   );
 }

@@ -1,8 +1,42 @@
-node_modules/
-.vscode/
-.*_cache_*/
-.idea/
-dist/
+# NPM/Yarn
+node_modules
+.yarn
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-/.yarn/
-/.github/
+# Yarn v2 (haven't switched yet but just in case)
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# TypeScript
+*.tsbuildinfo
+
+# Editors
+.vscode
+.idea
+
+# Build related
+.*_cache_*
+dist
+build
+
+# Testing
+coverage
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ESLint
+.eslintcache
+
+# Operating System stuff
+Thumbs.db
+.DS_Store

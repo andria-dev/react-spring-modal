@@ -9,11 +9,14 @@ import {
   ReactNode,
   useContext,
   useMemo,
+  useState,
   isValidElement
 } from 'react';
 
 import { animated, useTransition, UseTransitionProps } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
+import FocusLock from 'react-focus-lock';
+
 import { useId } from '@reach/auto-id';
 
 import './styles.css';
@@ -96,6 +99,7 @@ export function BaseModal({
   transitionConfig = emptyObject,
   labelId
 }: BaseModalProps) {
+  const [status, setStatus] = useState('focus-unlocked');
   const values = useMemo(
     () =>
       ({
@@ -115,7 +119,11 @@ export function BaseModal({
           ...prefixProperties('overlay', overlayTransition?.leave),
           ...prefixProperties('content', contentTransition?.leave)
         },
-        ...transitionConfig
+        ...transitionConfig,
+        onRest(isOpen: boolean, animationStatus: string) {
+          if (animationStatus === 'update')
+            setStatus(isOpen ? 'focus-locked' : 'focus-unlocked'); // if done opening, lock focus. if done closing, unlock focus
+        }
       } as ModalTransition),
     [overlayTransition, contentTransition, transitionConfig]
   );
@@ -129,8 +137,9 @@ export function BaseModal({
           item && (
             <AnimatedDialogOverlay
               key={key}
-              onDismiss={onDismiss}
               as="div"
+              onDismiss={onDismiss}
+              dangerouslyBypassFocusLock={status === 'focus-unlocked'}
               style={{
                 ...removePropertyPrefixes('overlay', styles),
                 ...overlayStyle

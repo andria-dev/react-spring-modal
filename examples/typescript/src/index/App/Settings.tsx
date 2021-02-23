@@ -11,8 +11,6 @@ export function Settings({ state, setState }: StateProps) {
   const monster = localStorage.getItem('monster');
 
   function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-
     const formData = new FormData(event.target as HTMLFormElement);
     if (window.localStorage) {
       localStorage.setItem('use-typescript', formData.get('use-typescript') as string);
