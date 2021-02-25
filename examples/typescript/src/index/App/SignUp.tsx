@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CenterModal } from 'react-spring-modal/dist/commonjs/index';
+import { CenterModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal/dist/commonjs/index';
 import { FormEvent } from 'react';
 import { StateProps } from '../shared/types';
 import './SignUp/SignUp.css';
@@ -23,7 +23,11 @@ export function SignUp({ state, setState }: StateProps) {
 
   let usernameErrorMessage = null;
   if (state.type === 'invalid-sign-up' && state.errorWith === 'username') {
-    usernameErrorMessage = <p className="error Form--error">{state.message}</p>;
+    usernameErrorMessage = (
+      <p className="error Form--error" role="alert" aria-live="polite">
+        {state.message}
+      </p>
+    );
   }
 
   function close() {
@@ -41,7 +45,7 @@ export function SignUp({ state, setState }: StateProps) {
         onDismiss={close}
         contentProps={{ className: 'SignUp', 'data-testid': 'sign-up-modal' }}
       >
-        <h1>Sign Up</h1>
+        <ModalTitle>Sign Up</ModalTitle>
         <p>Join our team now! Make sure you choose a secure password and unique username that suits your style.</p>
         <form className="SignUp__form Form" onSubmit={handleSubmit}>
           <label htmlFor="username-input">Username</label>
@@ -66,9 +70,9 @@ export function SignUp({ state, setState }: StateProps) {
 
           <section className="Form__actions">
             <button type="submit">Sign Up</button>
-            <button type="button" onClick={close}>
-              Cancel
-            </button>
+            <ModalCloseTarget>
+              <button type="button">Cancel</button>
+            </ModalCloseTarget>
           </section>
         </form>
       </CenterModal>

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs';
 import * as React from 'react';
 import { FormEvent } from 'react';
-import { BottomModal } from 'react-spring-modal/dist/commonjs/index';
+import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal/dist/commonjs/index';
 import { StateProps } from '../shared/types';
 import './Settings/Settings.css';
 
@@ -36,7 +36,7 @@ export function Settings({ state, setState }: StateProps) {
       </button>
 
       <BottomModal contentProps={{ className: 'Settings' }} isOpen={state.type === 'settings'} onDismiss={close}>
-        <h1>Settings</h1>
+        <ModalTitle>Settings</ModalTitle>
         <p>Modify your settings here and make this site your own.</p>
 
         <form className="Settings__form Form" onSubmit={handleSubmit}>
@@ -73,9 +73,9 @@ export function Settings({ state, setState }: StateProps) {
 
           <section className="Form__actions">
             <button type="submit">Save</button>
-            <button type="button" onClick={close}>
-              Cancel
-            </button>
+            <ModalCloseTarget>
+              <button type="button">Cancel</button>
+            </ModalCloseTarget>
           </section>
         </form>
       </BottomModal>
