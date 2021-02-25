@@ -81,6 +81,7 @@ interface BaseModalProps {
   isOpen: boolean;
   onDismiss?: (event?: React.SyntheticEvent) => void;
   children: ReactNode;
+  dangerouslyBypassFocusLock?: boolean;
   overlayProps?: OverlayProps;
   overlayTransition?: ModalTransition;
   contentProps?: ContentProps;
@@ -92,9 +93,18 @@ export function BaseModal({
   isOpen,
   onDismiss,
   children,
-  overlayProps: { style: overlayStyle = emptyObject, ...otherOverlayProps } = emptyObject,
+  dangerouslyBypassFocusLock,
+  overlayProps: {
+    style: overlayStyle = emptyObject,
+    className: overlayClassName = '',
+    ...otherOverlayProps
+  } = emptyObject,
   overlayTransition = defaultOverlayTransition,
-  contentProps: { style: contentStyle = emptyObject, ...otherContentProps } = emptyObject,
+  contentProps: {
+    style: contentStyle = emptyObject,
+    className: contentClassName = '',
+    ...otherContentProps
+  } = emptyObject,
   contentTransition,
   transitionConfig = emptyObject,
   labelId
@@ -121,14 +131,16 @@ export function BaseModal({
         },
         ...transitionConfig,
         onRest(isOpen: boolean, animationStatus: string) {
-          if (animationStatus === 'update')
-            setStatus(isOpen ? 'focus-locked' : 'focus-unlocked'); // if done opening, lock focus. if done closing, unlock focus
+          if (animationStatus === 'update') setStatus(isOpen ? 'focus-locked' : 'focus-unlocked'); // if done opening, lock focus. if done closing, unlock focus
         }
       } as ModalTransition),
     [overlayTransition, contentTransition, transitionConfig]
   );
   const transition = useTransition(isOpen, null, values);
   labelId = useId(labelId);
+
+  // If the dev doesn't set `dangerouslyBypassFocusLock`, use our status
+  if (dangerouslyBypassFocusLock === undefined) dangerouslyBypassFocusLock = status === 'focus-unlocked';
 
   return (
     <ModalContext.Provider value={{ labelId, onDismiss }}>
@@ -139,11 +151,12 @@ export function BaseModal({
               key={key}
               as="div"
               onDismiss={onDismiss}
-              dangerouslyBypassFocusLock={status === 'focus-unlocked'}
+              dangerouslyBypassFocusLock={dangerouslyBypassFocusLock}
               style={{
                 ...removePropertyPrefixes('overlay', styles),
                 ...overlayStyle
               }}
+              className={`ModalOverlay ${overlayClassName}`}
               {...otherOverlayProps}
             >
               <AnimatedDialogContent
@@ -152,6 +165,7 @@ export function BaseModal({
                   ...removePropertyPrefixes('content', styles),
                   ...contentStyle
                 }}
+                className={`ModalContent ${contentClassName}`}
                 aria-labelledby={labelId}
                 {...otherContentProps}
               >
@@ -180,20 +194,25 @@ interface ModalCloseTargetProps {
 }
 export function ModalCloseTarget({ children }: ModalCloseTargetProps) {
   const { onDismiss } = useContext(ModalContext);
-  return Children.map(children, child => {
-    if (isValidElement(child)) {
-      return cloneElement(child, { onClick: onDismiss });
-    }
-    return child;
-  });
+  return (
+    <>
+      {Children.map(children, child => {
+        if (isValidElement(child)) {
+          return cloneElement(child, { onClick: onDismiss });
+        }
+        return child;
+      })}
+    </>
+  );
 }
 
 /** Pre-built Custom Modals */
 
-export function CenterModal({ overlayProps, ...props }: BaseModalProps) {
+export function CenterModal({ overlayProps, contentProps, ...props }: BaseModalProps) {
   return (
     <BaseModal
-      overlayProps={{ ...overlayProps, className: 'CenterModal__overlay ' + overlayProps?.className }}
+      overlayProps={{ ...overlayProps, className: 'ModalOverlay--center ' + overlayProps?.className ?? '' }}
+      contentProps={{ ...contentProps, className: 'CenterModal ' + contentProps?.className ?? '' }}
       {...props}
     />
   );
@@ -202,8 +221,8 @@ export function CenterModal({ overlayProps, ...props }: BaseModalProps) {
 export function BottomModal({ overlayProps, contentProps, ...props }: BaseModalProps) {
   return (
     <BaseModal
-      overlayProps={{ ...overlayProps, className: 'BottomModal__overlay ' + overlayProps?.className }}
-      contentProps={{ ...contentProps, className: 'BottomModal ' + contentProps?.className }}
+      overlayProps={{ ...overlayProps, className: 'ModalOverlay--bottom ' + overlayProps?.className ?? '' }}
+      contentProps={{ ...contentProps, className: 'BottomModal ' + contentProps?.className ?? '' }}
       contentTransition={{
         initial: { transform: 'translateY(100%)' },
         from: { transform: 'translateY(100%)' },
@@ -219,7 +238,7 @@ interface ExpandModalProps extends BaseModalProps {
   x?: number;
   y?: number;
 }
-export function ExpandModal({ overlayProps, x = 50, y = 50, ...props }: ExpandModalProps) {
+export function ExpandModal({ overlayProps, contentProps, x = 50, y = 50, ...props }: ExpandModalProps) {
   return (
     <BaseModal
       overlayProps={{ ...overlayProps, className: 'ExpandModal__overlay ' + overlayProps?.className }}
@@ -227,6 +246,10 @@ export function ExpandModal({ overlayProps, x = 50, y = 50, ...props }: ExpandMo
         from: { clipPath: `circle(0% at ${x}% ${y}%)` },
         enter: { clipPath: `circle(100% at ${x}% ${y}%)` },
         leave: { clipPath: `circle(0% at ${x}% ${y}%)` }
+      }}
+      contentProps={{
+        ...contentProps,
+        className: 'ExpandModal ' + contentProps?.className ?? ''
       }}
       {...props}
     />

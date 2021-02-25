@@ -1,1 +1,1 @@
-./react-spring-modal/README.md
+spring/README.md

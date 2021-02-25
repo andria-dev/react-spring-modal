@@ -27,7 +27,7 @@ export function Settings({ state, setState }: StateProps) {
   return (
     <>
       <button
-        className="Settings__open-button"
+        className="Settings__open-button circle-icon-button"
         title="Open settings"
         aria-label="Open settings"
         onClick={() => setState({ type: 'settings' })}

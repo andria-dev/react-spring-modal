@@ -2,19 +2,11 @@
   position: absolute;
   display: grid;
   place-items: center;
-
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-
-  border: none;
-  background: none;
-  cursor: pointer;
 }
 
 .Menu__button--circle:focus {
   outline: none;
-  border: 1px solid black;
+  border: 1px solid;
 }
 
 .Menu__button--open {
@@ -27,20 +19,21 @@
 }
 
 .Menu {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  width: 15rem;
+  width: 100%;
+  max-width: 25rem;
   height: 100vh;
-
-  background-color: white;
 }
 
 .Menu__link {
   width: calc(70% - 4px);
-  padding: 0.5rem 0;
+  padding: 1rem 0;
   border: solid 2px black;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
 
@@ -49,6 +42,17 @@
 
   text-align: center;
   text-decoration: none;
+}
+.dark-mode .Menu__link {
+  color: black;
+  background-color: hsl(0, 0%, 86%);
+}
+
+.Menu__link.Menu__link--active {
+  background-color: hsl(234, 66%, 60%);
+}
+.dark-mode .Menu__link.Menu__link--active {
+  background-color: hsl(234, 97%, 71%);
 }
 
 .Menu__link:hover {

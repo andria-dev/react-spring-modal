@@ -1,9 +1,24 @@
-h1, h2, h3, h4, h5, h6, p {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 
 .App {
-  padding: 2rem;
+  padding: 4rem;
+  background-color: #fefefe;
+  height: calc(100vh - 4rem * 2);
+}
+.dark-mode .App {
+  color: white;
+  background-color: #222;
+}
+.dark-mode .App a {
+  color: lightblue;
 }
 
 .App > h1 {
@@ -14,3 +29,41 @@ h1, h2, h3, h4, h5, h6, p {
   margin-bottom: 1rem;
 }
 
+.circle-icon-button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+}
+.dark-mode .circle-icon-button {
+  color: #eee;
+}
+
+.circle-icon-button:hover {
+  background-color: #dfdfdf;
+  border-color: #ccc;
+}
+.dark-mode .circle-icon-button:hover {
+  background-color: #444;
+  border-color: #eee;
+}
+
+.circle-icon-button:focus {
+  outline: none;
+  border-color: black;
+}
+.dark-mode .circle-icon-button:focus {
+  border-color: white;
+}
+
+.circle-icon-button:active {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  background-color: #f4f4f4;
+}
+.dark-mode .circle-icon-button:active {
+  box-shadow: 1px 1px 2px rgba(255, 255, 255, 0.15);
+  background-color: #333;
+}

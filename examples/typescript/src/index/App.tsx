@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Settings } from './App/Settings';
 import { SignUp } from './App/SignUp';
@@ -11,6 +11,24 @@ import './App/App.css';
 
 function App() {
   const [state, setState] = useState<State>({ type: 'idle' });
+
+  useEffect(() => {
+    function themeChangeHandler(queryEvent: MediaQueryListEvent | MediaQueryList) {
+      const oldTheme = queryEvent.matches ? 'light-mode' : 'dark-mode';
+      const newTheme = queryEvent.matches ? 'dark-mode' : 'light-mode';
+
+      document.body.classList.remove(oldTheme);
+      document.body.classList.add(newTheme);
+    }
+
+    const query = matchMedia('(prefers-color-scheme: dark)');
+    themeChangeHandler(query);
+
+    query.addEventListener('change', themeChangeHandler);
+    return () => {
+      query.removeEventListener('change', themeChangeHandler);
+    };
+  }, []);
 
   return (
     <div className="App">
@@ -30,6 +48,9 @@ function App() {
         </li>
         <li>
           <code>&lt;BottomModal&gt;</code> for the Settings modal.
+        </li>
+        <li>
+          <code>&lt;ExpandModal&gt;</code> for the Navigation Menu modal.
         </li>
       </ul>
 

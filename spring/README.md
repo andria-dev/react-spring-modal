@@ -69,8 +69,10 @@ export function Bottom() {
 You might notice that `<BottomModal>` doesn't render to anything. Due to the use of React DOM's `createPortal` all modals that use `<ModalPortal>` (i.e. the ones packaged with this module) will render to `#modal-root`. You'll need something like this in your HTML:
 
 ```html
-<div id="root"></div> <!-- This was probably already here -->
-<div id="modal-root"></div> <!-- This is where modals will render to -->
+<div id="root"></div>
+<!-- This was probably already here -->
+<div id="modal-root"></div>
+<!-- This is where modals will render to -->
 ```
 
 You can also create your own modal with it's own transition by utilizing the component that both `<CenterModal>` and `<BottomModal>` are built on: `<BaseModal>`. It takes the same arguments as the previous two but provides no built in positioning or animation (besides the `<ModalBackdrop>`). Here is an example of creating your own animated modal:
@@ -161,18 +163,18 @@ Shares props with `<BaseModal>`
 | Name            | Type                             | Description                                |
 | --------------- | -------------------------------- | ------------------------------------------ |
 | modalTransition | ReturnType<typeof useTransition> | Replaces the transition used for the modal |
-  
+
 ## FAQ
 
-* Why won't my modal render when `isOpen` is set to `true`?
+- Why won't my modal render when `isOpen` is set to `true`?
 
   You most likely haven't placed a `<div id="modal-root"></div>` within your HTML file. Without this, the modal doesn't know where to render to. If that doesn't fix the issue, feel free to open a new issue on this repository.
 
-* Why am I getting `ReferenceError: globalThis is not defined`?
-  
+- Why am I getting `ReferenceError: globalThis is not defined`?
+
   You're using this library in an environment that does not support the `globalThis` keyword out-of-the-box. You will need to **use a polyfill for `globalThis`** to fix the error. I recommend that you use [@ungap/global-this](https://github.com/ungap/global-this)
 
-* How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
+- How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
 
   The solution here is to set the property `autoFocus` on your `<BaseModal>`, `<CenterModal>`, or `<BottomModal>` to `false` like so:
 
