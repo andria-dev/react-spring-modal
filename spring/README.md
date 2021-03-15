@@ -6,13 +6,17 @@ A component library for animatable and accessible modals built with react-spring
 <br>
 ✅ Handles focus restoration
 <br>
-✅ Prevents focus on covered content via `inert` attribute; includes polyfill
+✅ Prevents focus on covered content
 <br>
 ✅ Handles other modal accessibility issues as well (i.e. nested modals, initial focus, and focus restoration)
 <br>
 ✅ Animatable via `react-spring`'s `useTransition`
 
 ## Usage
+
+<!-- TODO: replace with Carbon.now.sh screenshot and add Alt text -->
+
+![](assets/code.png)
 
 ### Installation
 
@@ -30,14 +34,18 @@ npm i react-spring-modal react react-dom react-spring
 
 ### Example
 
+<!-- TODO: update example after publishing -->
+
 You can [view comprehensive live examples on CodeSandbox.io](https://codesandbox.io/embed/react-spring-modalall-b3wp2?fontsize=14&hidenavigation=1&theme=dark)
 
-To use this package you'll need to choose a modal and import the CSS file. In our example, we'll be using `<BottomModal>` to animate the html `<h1>The Modal</h1>` up from the bottom of the screen with a white background.
+To use this package you'll need to choose a modal and import the CSS file. In our example, we'll be using `<BottomModal>` to animate it's HTML contents up from the bottom of the screen with a white background.
+
+By default, this library supports dark mode via a `.dark-mode` CSS class — you're not obligated to use any styles from this library.
 
 ```typescript jsx
 import * as React from 'react';
 import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
-import 'react-spring-modal/dist/index.css';
+import 'react-spring-modal/dist/modern/styles.css';
 
 /**
  * Renders a white modal that slides up from the bottom and back down when leaving.
@@ -50,19 +58,13 @@ export function Bottom() {
   return (
     <>
       <button onClick={() => setOpen(true)}>Open bottom modal</button>
-      <BottomModal
-        isOpen={isOpen}
-        onDismiss={() => setOpen(false)}
-        style={{
-          backgroundColor: 'white',
-          padding: '1rem 2rem',
-          borderRadius: '0.25rem'
-        }}
-      >
+      <BottomModal isOpen={isOpen} onDismiss={() => setOpen(false)}>
+        {/* Defaults to <h1> and gives it an id to make it the label for your modal */}
         <ModalTitle>My Bottom Modal</ModalTitle>
         <p>Lorem ipsum dolor sit amet.</p>
+
+        {/* Automatically adds onClick that dismisses modal */}
         <ModalCloseTarget>
-          {/* Automatically adds onClick that dismisses modal */}
           <button>Close</button>
         </ModalCloseTarget>
       </BottomModal>
@@ -71,21 +73,21 @@ export function Bottom() {
 }
 ```
 
-You might notice that `<BottomModal>` doesn't render to anything. Due to the use of React DOM's `createPortal` all modals that use `<ModalPortal>` (i.e. the ones packaged with this module) will render to `#modal-root`. You'll need something like this in your HTML:
+From version 2.0.0 and on you no longer need to add a `#modal-root`. All you need to do is
 
-```html
-<div id="root"></div>
-<!-- This was probably already here -->
-<div id="modal-root"></div>
-<!-- This is where modals will render to -->
-```
-
-You can also create your own modal with it's own transition by utilizing the component that both `<CenterModal>` and `<BottomModal>` are built on: `<BaseModal>`. It takes the same arguments as the previous two but provides no built in positioning or animation (besides the `<ModalBackdrop>`). Here is an example of creating your own animated modal:
+You can also create your own modal with it's own transition by utilizing the component that `<CenterModal>`, `<BottomModal>`, and `<ExpandModal>` are built on — `<BaseModal>`. It takes the same arguments as the previous two but provides no built in positioning or animation (besides the overlay fading in). Here is an example of creating your own animated modal:
 
 ```typescript jsx
-import React, { useState } from 'react';
-import { useTransition, animated } from 'react-spring';
-import { BaseModal } from 'react-spring-modal';
+import * as React from 'react';
+import { BaseModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
+
+const staticModalStyles = {
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  padding: '1rem 2rem',
+  borderRadius: '0.25rem'
+};
 
 /**
  * We're going to animate the background color from
@@ -95,33 +97,25 @@ import { BaseModal } from 'react-spring-modal';
  * and then back up when we close it
  */
 export function Custom() {
-  const [isOpen, setOpen] = useState(false);
-  const transition = useTransition(isOpen, null, {
-    from: { background: 'lightcoral', transform: 'translateY(-100%)' },
-    enter: { background: 'lightcyan', transform: 'translateY(0)' },
-    leave: { background: 'lightcoral', transform: 'translateY(-100%)' }
-  });
-
-  const staticStyles = {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    padding: '1rem 2rem',
-    borderRadius: '0.25rem'
-  };
+  const [isOpen, setOpen] = React.useState(false);
 
   return (
     <>
       <button onClick={() => setOpen(true)}>Open custom modal</button>
-      <BaseModal isOpen={isOpen} onRequestClose={() => setOpen(false)}>
-        {transition.map(
-          ({ item, key, props }) =>
-            item && (
-              <animated.div key={key} style={{ ...props, ...staticStyles }}>
-                <h1 style={{ fontSize: '1rem' }}>My Custom Modal</h1>
-              </animated.div>
-            )
-        )}
+      <BaseModal
+        isOpen={isOpen}
+        onDismiss={() => setOpen(false)}
+        contentTransition={{
+          from: { background: 'lightcoral', transform: 'translateY(-100%)' },
+          enter: { background: 'lightcyan', transform: 'translateY(0)' },
+          leave: { background: 'lightcoral', transform: 'translateY(-100%)' }
+        }}
+        contentProps={{ style: staticModalStyles }}
+      >
+        <ModalTitle>My Custom Modal</ModalTitle>
+        <ModalCloseTarget>
+          <button>Close</button>
+        </ModalCloseTarget>
       </BaseModal>
     </>
   );
@@ -130,64 +124,97 @@ export function Custom() {
 
 ### API
 
-#### `<ModalPortal>`
-
-Requires that an element with the id `modal-root` exists.
-
-| Name     | Description              |
-| -------- | ------------------------ |
-| children | Rendered into the portal |
-
-#### `<ModalBackdrop>`
-
-Any props allowed. This element basically just renders `animated.div` and passes the props to it.
-
-| Name    | Type            | Description                                                       |
-| ------- | --------------- | ----------------------------------------------------------------- |
-| onClick | (Event) => void | Only fires when the backdrop itself is clicked, not its children. |
-
 #### `<BaseModal>`
 
-For custom modals `<BaseModal>` should be used as it handles accessibility via the `inert` attribute and handles restoring focus.
+For custom modals, `<BaseModal>` should be used as it handles accessibility via `@reach/dialog` which handles everything from focus locking and focus restoration to rendering non-modal content inaccessible via `aria-hidden`.
 
-| Name           | Type       | Description                                                                    |
-| -------------- | ---------- | ------------------------------------------------------------------------------ |
-| isOpen         | Boolean    | Used to determine open and closed state for `useTransition`                    |
-| onRequestClose | () => void | Used to close the modal when clicking on the backdrop or pressing ESC (escape) |
-| autoFocus      | Boolean    | When true, this will focus on the first focusable element when the modal opens |
+```typescript
+interface BaseModalProps {
+  // Used to determine open and closed state for useTransition internally
+  isOpen: boolean;
 
-#### `<BottomModal>` and `<CenterModal>`
+  // Used to close the modal when clicking on the backdrop, pressing Escape, or clicking on a <ModalCloseTarget> child.
+  onDismiss?: (event?: React.SyntheticEvent) => void;
+  children: ReactNode;
+
+  // Allows you to disable focus lock with a boolean.
+  dangerouslyBypassFocusLock?: boolean;
+
+  // All props allowed by animated(DialogOverlay) and all HTML attributes.
+  overlayProps?: OverlayProps;
+
+  // initial, from, enter, and leave from react-spring's useTransition.
+  overlayTransition?: ModalTransition;
+
+  // The same thing but with animated(DialogContent).
+  contentProps?: ContentProps;
+  contentTransition?: ModalTransition;
+
+  // Everything that isn't included in the ModalTransition from react-spring's useTranistion.
+  transitionConfig?: Omit<CssTransitionProps, 'initial' | 'from' | 'enter' | 'leave'>;
+
+  // A custom label id for the modal's aria-labelledby attribute
+  labelId?: string;
+}
+
+type CssTransitionProps = UseTransitionProps<boolean, CSSProperties>;
+interface ModalTransition {
+  initial?: CssTransitionProps['initial'];
+  from?: CssTransitionProps['from'];
+  enter?: CssTransitionProps['enter'];
+  leave?: CssTransitionProps['leave'];
+}
+```
+
+<!-- TODO: Add links -->
+
+You can find information about [`UseTransitionProps` type definition here]() and [information about `DialogOverlay` and `DialogContent` here]().
+
+#### `<BottomModal>`, `<CenterModal>`, and `<ExpandModal>`
 
 Built-in custom modals.
 
 - `<BottomModal>` slides in from the bottom of the screen and stays attached to the bottom.
 - `<CenterModal>` fades in and is positioned in the center.
 
-Shares props with `<BaseModal>`
+Both of the above share all props with `<BaseModal>`.
 
-| Name            | Type                             | Description                                |
-| --------------- | -------------------------------- | ------------------------------------------ |
-| modalTransition | ReturnType<typeof useTransition> | Replaces the transition used for the modal |
+- `<ExpandModal>` expands from the specified coordinates in a circle shape via the CSS property `clip-path`.
+
+```typescript
+interface ExpandModalProps extends BaseModalProps {
+  // x and y are percentages
+  x?: number;
+  y?: number;
+}
+```
+
+#### `<ModalTitle>`
+
+```typescript
+interface ModalTitleProps extends HTMLAttributes<Element> {
+  as?: ComponentType | keyof JSX.IntrinsicElements;
+  children: ReactNode;
+}
+```
+
+This component simply acts as an `<h1>` by default and gives it an `id` from context that allows it to be used as the label for your modal. It doesn't have to be an `<h1>` but, if focus lock is on, it is highly recommended that it stays an `<h1>`.
+
+#### `<ModalCloseTarget>`
+
+```typescript
+interface ModalCloseTargetProps {
+  children: ReactNode;
+}
+```
+
+This component simply assigns `onClick` on your `children` to the value of `onDismiss` from your modal. This way you won't need to rewrite your `onDismiss` function multiple times.
 
 ## FAQ
 
-- Why won't my modal render when `isOpen` is set to `true`?
-
-  You most likely haven't placed a `<div id="modal-root"></div>` within your HTML file. Without this, the modal doesn't know where to render to. If that doesn't fix the issue, feel free to open a new issue on this repository.
-
-- Why am I getting `ReferenceError: globalThis is not defined`?
-
-  You're using this library in an environment that does not support the `globalThis` keyword out-of-the-box. You will need to **use a polyfill for `globalThis`** to fix the error. I recommend that you use [@ungap/global-this](https://github.com/ungap/global-this)
+<!-- TODO: answer this question -->
 
 - How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
-
-  The solution here is to set the property `autoFocus` on your `<BaseModal>`, `<CenterModal>`, or `<BottomModal>` to `false` like so:
-
-  ```typescript jsx
-  <BaseModal autoFocus={false} isOpen={...} onRequestClose={...}>
-    {/* ... */}
-  </BaseModal>
-  ```
 
 ## License
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CenterModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal/dist/commonjs/index';
+import { CenterModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
 import { FormEvent } from 'react';
 import { StateProps } from '../shared/types';
 import './SignUp/SignUp.css';

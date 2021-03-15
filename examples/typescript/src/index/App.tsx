@@ -6,7 +6,7 @@ import { SignUp } from './App/SignUp';
 import { Menu } from './App/Menu';
 import { State } from './shared/types';
 
-import 'react-spring-modal/dist/commonjs/bundle.css';
+import 'react-spring-modal/dist/modern/styles.css';
 import './App/App.css';
 
 function App() {

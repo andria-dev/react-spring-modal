@@ -25,19 +25,28 @@
     "url": "https://github.com/ChrisBrownie55/react-spring-modal/issues"
   },
   "source": "./src/index.tsx",
-  "main": "./dist/index.commonjs.js",
-  "module": "./dist/index.module.js",
+  "main": "./dist/commonjs/index.js",
+  "module": "./dist/module/index.js",
   "exports": {
     ".": {
-      "modern": "./dist/index.modern.js",
-      "node": "./dist/index.commonjs.js",
-      "import": "./dist/index.module.js"
+      "modern": "./dist/modern/index.js",
+      "node": "./dist/commonjs/index.js",
+      "import": "./dist/module/index.js",
+      "default": "./dist/modern/index.js"
+    },
+    "./styles.css": {
+      "modern": "./dist/modern/styles.css",
+      "node": "./dist/commonjs/styles.css",
+      "import": "./dist/module/styles.css",
+      "default": "./dist/modern/styles.css"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/modern/index.d.ts",
   "files": [
     "./dist",
-    "./src"
+    "./src",
+    "./package.json",
+    "./README.md"
   ],
   "scripts": {
     "emit": "",

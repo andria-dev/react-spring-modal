@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StateProps } from '../shared/types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
-import { ExpandModal, ModalCloseTarget, ModalTitle } from 'react-spring-modal/dist/commonjs/index';
+import { ExpandModal, ModalCloseTarget, ModalTitle } from 'react-spring-modal';
 import './Menu/Menu.css';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 

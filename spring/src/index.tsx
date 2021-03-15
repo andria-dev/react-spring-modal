@@ -15,7 +15,6 @@ import {
 
 import { animated, useTransition, UseTransitionProps } from 'react-spring';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
-import FocusLock from 'react-focus-lock';
 
 import { useId } from '@reach/auto-id';
 

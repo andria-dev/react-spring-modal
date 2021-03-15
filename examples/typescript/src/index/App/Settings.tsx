@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs';
 import * as React from 'react';
 import { FormEvent } from 'react';
-import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal/dist/commonjs/index';
+import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
 import { StateProps } from '../shared/types';
 import './Settings/Settings.css';
 
