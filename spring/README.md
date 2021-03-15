@@ -18,14 +18,14 @@ A component library for animatable and accessible modals built with react-spring
 
 When you install `react-spring-modal` you'll need to make sure that you have also installed `react`, `react-dom` and `react-spring`.
 
-Note: this package uses React's hooks feature, so you'll need to have at least `react@18.0.0` or up.
+Note: this package uses React's hooks feature, so you'll need to have at least `react@16.8.0` or up.
 
 ```bash
-pnpm i react-spring-modal react react-dom react-spring
+yarn add react-spring-modal react react-dom react-spring
 
 # or
 
-yarn add react-spring-modal react react-dom react-spring
+npm i react-spring-modal react react-dom react-spring
 ```
 
 ### Example
@@ -35,8 +35,8 @@ You can [view comprehensive live examples on CodeSandbox.io](https://codesandbox
 To use this package you'll need to choose a modal and import the CSS file. In our example, we'll be using `<BottomModal>` to animate the html `<h1>The Modal</h1>` up from the bottom of the screen with a white background.
 
 ```typescript jsx
-import React, { useState } from 'react';
-import { BottomModal } from 'react-spring-modal';
+import * as React from 'react';
+import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
 import 'react-spring-modal/dist/index.css';
 
 /**
@@ -46,20 +46,25 @@ import 'react-spring-modal/dist/index.css';
  * The max-width for smaller devices is the entire screen.
  */
 export function Bottom() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = React.useState(false);
   return (
     <>
       <button onClick={() => setOpen(true)}>Open bottom modal</button>
       <BottomModal
         isOpen={isOpen}
-        onRequestClose={() => setOpen(false)}
+        onDismiss={() => setOpen(false)}
         style={{
           backgroundColor: 'white',
           padding: '1rem 2rem',
           borderRadius: '0.25rem'
         }}
       >
-        <h1>My Bottom Modal</h1>
+        <ModalTitle>My Bottom Modal</ModalTitle>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <ModalCloseTarget>
+          {/* Automatically adds onClick that dismisses modal */}
+          <button>Close</button>
+        </ModalCloseTarget>
       </BottomModal>
     </>
   );

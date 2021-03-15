@@ -14,13 +14,13 @@
 }
 
 .ModalContent {
-  color: black;
+  color: #222;
   background-color: white;
   box-shadow: 0 15px 30px 0 hsl(0deg, 0%, 0%, 0.11%), 0 5px 15px 0 hsl(0deg, 0%, 0%, 0.8%);
 }
 .dark-mode .ModalContent {
   color: white;
-  background-color: black;
+  background-color: #222;
 }
 
 .ModalOverlay--center {

@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "yarn workspace react-spring-modal build",
-    "example:ts": "yarn workspace snowpack-typescript start"
+    "example:ts": "yarn workspace typescript-example start"
   },
   "devDependencies": {
     "destiny": "^0.7.0",

@@ -24,7 +24,7 @@ export function SignUp({ state, setState }: StateProps) {
   let usernameErrorMessage = null;
   if (state.type === 'invalid-sign-up' && state.errorWith === 'username') {
     usernameErrorMessage = (
-      <p className="error Form--error" role="alert" aria-live="polite">
+      <p className="error Form--error" role="alert">
         {state.message}
       </p>
     );
@@ -43,6 +43,7 @@ export function SignUp({ state, setState }: StateProps) {
       <CenterModal
         isOpen={state.type === 'sign-up' || state.type === 'invalid-sign-up'}
         onDismiss={close}
+        overlayProps={{ 'data-testid': 'sign-up-overlay' }}
         contentProps={{ className: 'SignUp', 'data-testid': 'sign-up-modal' }}
       >
         <ModalTitle>Sign Up</ModalTitle>

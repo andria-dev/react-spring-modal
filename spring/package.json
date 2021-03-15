@@ -27,7 +27,13 @@
   "source": "./src/index.tsx",
   "main": "./dist/index.commonjs.js",
   "module": "./dist/index.module.js",
-  "exports": "./dist/index.modern.js",
+  "exports": {
+    ".": {
+      "modern": "./dist/index.modern.js",
+      "node": "./dist/index.commonjs.js",
+      "import": "./dist/index.module.js"
+    }
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "./dist",
