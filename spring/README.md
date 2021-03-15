@@ -16,7 +16,7 @@ A component library for animatable and accessible modals built with react-spring
 
 <!-- TODO: replace with Carbon.now.sh screenshot and add Alt text -->
 
-![](assets/code.png)
+![](assets/carbon.png)
 
 ### Installation
 
