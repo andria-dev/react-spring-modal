@@ -216,7 +216,7 @@ This component simply assigns `onClick` on your `children` to the value of `onDi
 
 - How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
 
-  In order to do this, you will have to `dangerouslyBypassFocusLock` and then use `react-focus-lock` and `react-remove-scroll` to reimplement [the existing code in the `@reach/dialog` package](https://github.com/reach/reach-ui/blob/e1a6fba7042e1e023c4a3a4e7c15a13225500667/packages/dialog/src/index.tsx#L184-L213) to disable `autoFocus`.
+  In order to do this, you will have to `dangerouslyBypassFocusLock` and then use `react-focus-lock` and `react-remove-scroll` to reimplement [the existing code in the `@reach/dialog` package](https://github.com/reach/reach-ui/blob/e1a6fba7042e1e023c4a3a4e7c15a13225500667/packages/dialog/src/index.tsx#L184-L213) to disable `autoFocus`. You will also likely want to reimplement this in the same way that I have to ensure that the locking of focus or scrolling does not cut off your entry animation.
 
 ## License
 
