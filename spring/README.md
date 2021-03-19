@@ -16,7 +16,7 @@ A component library for animatable and accessible modals built with react-spring
 
 <!-- TODO: replace with Carbon.now.sh screenshot and add Alt text -->
 
-![](assets/carbon.png)
+![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](assets/carbon.png)
 
 ### Installation
 
@@ -215,6 +215,8 @@ This component simply assigns `onClick` on your `children` to the value of `onDi
 <!-- TODO: answer this question -->
 
 - How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
+
+  
 
 ## License
 
