@@ -2,7 +2,7 @@
 
 This repository contains the packages **[react-spring-modal](https://github.com/ChrisBrownie55/react-spring-modal/blob/master/spring/)** and, in the future, **framer-motion-modal**. You can use the above links to view their READMEs.
 
-![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](spring/assets/carbon.png)
+[![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](spring/assets/carbon.png)](https://github.com/ChrisBrownie55/react-spring-modal/blob/master/spring/)
 
 ## Contributing
 
