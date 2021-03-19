@@ -14,8 +14,6 @@ A component library for animatable and accessible modals built with react-spring
 
 ## Usage
 
-<!-- TODO: replace with Carbon.now.sh screenshot and add Alt text -->
-
 ![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](assets/carbon.png)
 
 ### Installation
@@ -166,9 +164,7 @@ interface ModalTransition {
 }
 ```
 
-<!-- TODO: Add links -->
-
-You can find information about [`UseTransitionProps` type definition here]() and [information about `DialogOverlay` and `DialogContent` here]().
+You can find information about [`UseTransitionProps` type definition here](https://www.react-spring.io/docs/hooks/use-transition) and [information about `DialogOverlay` and `DialogContent` here](https://reach.tech/dialog/#dialogoverlay).
 
 #### `<BottomModal>`, `<CenterModal>`, and `<ExpandModal>`
 
@@ -211,8 +207,6 @@ interface ModalCloseTargetProps {
 This component simply assigns `onClick` on your `children` to the value of `onDismiss` from your modal. This way you won't need to rewrite your `onDismiss` function multiple times.
 
 ## FAQ
-
-<!-- TODO: answer this question -->
 
 - How do I prevent the modal from automatically focusing on the first focusable element once my modal has opened?
 

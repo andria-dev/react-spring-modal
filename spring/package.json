@@ -52,10 +52,9 @@
     "emit": "",
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "format:structure": "destiny -w src/**/*.*",
     "format:code": "prettier --write src",
     "format:lint": "eslint --fix",
-    "format": "yarn format:structure && yarn format:code && yarn format:lint"
+    "format": "yarn format:code && yarn format:lint"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.1.0",
