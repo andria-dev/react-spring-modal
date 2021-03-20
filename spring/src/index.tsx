@@ -18,8 +18,6 @@ import { DialogOverlay, DialogContent } from '@reach/dialog';
 
 import { useId } from '@reach/auto-id';
 
-import './styles.css';
-
 export const AnimatedDialogOverlay = animated(DialogOverlay);
 export const AnimatedDialogContent = animated(DialogContent);
 

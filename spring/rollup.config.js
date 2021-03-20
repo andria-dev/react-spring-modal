@@ -1,10 +1,12 @@
 import typescript from 'typescript';
 import pluginTypeScript from '@rollup/plugin-typescript';
 import del from 'rollup-plugin-delete';
-import css from 'rollup-plugin-css-only';
 
 import tsConfig from './tsconfig.json';
 import pkg from './package.json';
+
+import { promises as fs } from 'fs';
+import path from 'path';
 
 const externalDependencies = ['react', 'react-dom', 'react-spring', '@reach/dialog'];
 const TypeScriptConfigs = {
@@ -28,8 +30,21 @@ const TypeScriptConfigs = {
     declarationDir: './dist/modern/'
   }
 };
-const cssConfig = { output: 'styles.css' };
-const delConfig = { targets: './dist/*' };
+const delConfig = { targets: ['./dist/*', './styles.css'] };
+
+function copyStyles() {
+  return {
+    async buildEnd() {
+      try {
+        await fs.copyFile(path.join(process.cwd(), 'src', 'styles.css'), path.join(process.cwd(), 'styles.css'));
+        console.log('./src/styles.css → ./styles.css');
+      } catch (error) {
+        console.log('Unable to copy ./src/style.css to ./styles.css');
+        console.error(error);
+      }
+    }
+  };
+}
 
 export default [
   {
@@ -38,7 +53,7 @@ export default [
     plugins: [
       // so Rollup can convert TypeScript to JavaScript
       pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/commonjs/' }),
-      css(cssConfig), // so we can have CSS 😅
+      copyStyles(), // so we can have CSS!
       del(delConfig) // so the "dist/" folder is empty before we write
     ],
     output: { dir: './dist/commonjs/', format: 'cjs', sourcemap: true }
@@ -46,13 +61,13 @@ export default [
   {
     input: pkg.source,
     external: externalDependencies,
-    plugins: [pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/module/' }), css(cssConfig)],
+    plugins: [pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/module/' })],
     output: { dir: './dist/module/', format: 'es', sourcemap: true }
   },
   {
     input: pkg.source,
     external: externalDependencies,
-    plugins: [pluginTypeScript(TypeScriptConfigs.modern), css(cssConfig)],
+    plugins: [pluginTypeScript(TypeScriptConfigs.modern)],
     output: { dir: './dist/modern/', format: 'es', sourcemap: true }
   }
 ];

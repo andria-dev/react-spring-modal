@@ -35,10 +35,7 @@
       "default": "./dist/modern/index.js"
     },
     "./styles.css": {
-      "modern": "./dist/modern/styles.css",
-      "node": "./dist/commonjs/styles.css",
-      "import": "./dist/module/styles.css",
-      "default": "./dist/modern/styles.css"
+      "default": "./styles.css"
     }
   },
   "types": "./dist/modern/index.d.ts",
