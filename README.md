@@ -4,6 +4,13 @@ This repository contains the packages **[react-spring-modal](https://github.com/
 
 [![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](spring/assets/carbon.png)](https://github.com/ChrisBrownie55/react-spring-modal/blob/master/spring/)
 
+## Examples
+
+We currently have two different examples showcasing `react-spring-modal`. If you have any examples of your own, please make a PR to add them if you feel comfortable doing so.
+
+- [CRA TypeScript example](https://github.com/ChrisBrownie55/react-spring-modal/blob/master/examples/typescript)
+- [Next.js SSR example](https://github.com/ChrisBrownie55/react-spring-modal/blob/master/examples/nextjs)
+
 ## Contributing
 
 If you would like to contribute, please read the following tips on getting you started and guidelines for PRs and such.
