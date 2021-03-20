@@ -1,8 +1,8 @@
 {
   "name": "react-spring-modal",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "Animatable and accessible modals built with react-spring and @reach/dialog",
-  "author": "Christopher H. Brown <chris_brown@hey.com> (https://chrisbrownie.dev)",
+  "author": "Chris Brown <chris_brown@hey.com> (https://chrisbrownie.dev)",
   "license": "MIT",
   "keywords": [
     "react",
@@ -17,9 +17,6 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ChrisBrownie55/react-spring-modal.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@chrisbrownie55"
   },
   "bugs": {
     "url": "https://github.com/ChrisBrownie55/react-spring-modal/issues"
@@ -41,6 +38,7 @@
   "types": "./dist/modern/index.d.ts",
   "files": [
     "./dist",
+    "./styles.css",
     "./src",
     "./package.json",
     "./README.md"
