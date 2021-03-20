@@ -83,7 +83,9 @@ interface BaseModalProps {
   overlayTransition?: ModalTransition;
   contentProps?: ContentProps;
   contentTransition?: ModalTransition;
-  transitionConfig?: Omit<CssTransitionProps, 'initial' | 'from' | 'enter' | 'leave'>;
+  transitionConfig?: Omit<CssTransitionProps, 'initial' | 'from' | 'enter' | 'leave'> & {
+    onRest?: (isOpen: boolean, animationStatus: string) => void;
+  };
   labelId?: string;
 }
 export function BaseModal({
@@ -128,6 +130,9 @@ export function BaseModal({
         },
         ...transitionConfig,
         onRest(isOpen: boolean, animationStatus: string) {
+          if (typeof transitionConfig.onRest === 'function') {
+            transitionConfig.onRest(isOpen, animationStatus);
+          }
           if (animationStatus === 'update') setStatus(isOpen ? 'focus-locked' : 'focus-unlocked'); // if done opening, lock focus. if done closing, unlock focus
         }
       } as ModalTransition),
