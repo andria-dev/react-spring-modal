@@ -13,6 +13,14 @@ yarn-error.log*
 .yarn/install-state.gz
 .pnp.*
 
+# vercel
+.vercel
+
+# next.js
+.next/
+out/
+
+
 # TypeScript
 *.tsbuildinfo
 

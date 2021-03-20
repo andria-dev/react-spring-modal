@@ -3,12 +3,15 @@
   "private": true,
   "workspaces": [
     "./spring",
-    "./examples/*",
-    "./test"
+    "./framer",
+    "./examples/*"
   ],
   "scripts": {
-    "build": "yarn workspace react-spring-modal build",
-    "example:ts": "yarn workspace typescript-example start"
+    "build": "yarn build:spring && yarn build:framer",
+    "build:spring": "yarn workspace react-spring-modal build",
+    "build:framer": "yarn workspace framer-motion-modal build",
+    "example:ts": "yarn workspace typescript-example start",
+    "example:next": "yarn workspace nextjs-example dev"
   },
   "devDependencies": {
     "destiny": "^0.7.0",
