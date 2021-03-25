@@ -200,7 +200,11 @@ export function ModalCloseTarget({ children }: ModalCloseTargetProps) {
     <>
       {Children.map(children, child => {
         if (isValidElement(child)) {
-          return cloneElement(child, { onClick: onDismiss });
+          const onClick = (event: React.SyntheticEvent) => {
+            if (onDismiss) onDismiss(event);
+            if (child.props.onClick) child.props.onClick(event);
+          };
+          return cloneElement(child, { onClick });
         }
         return child;
       })}

@@ -43,7 +43,7 @@ By default, this library supports dark mode via a `.dark-mode` CSS class — you
 ```typescript jsx
 import * as React from 'react';
 import { BottomModal, ModalTitle, ModalCloseTarget } from 'react-spring-modal';
-import 'react-spring-modal/dist/modern/styles.css';
+import 'react-spring-modal/styles.css';
 
 /**
  * Renders a white modal that slides up from the bottom and back down when leaving.
