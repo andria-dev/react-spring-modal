@@ -131,7 +131,7 @@ export function BaseModal({
         ...transitionConfig,
         onRest(isOpen: boolean, animationStatus: string) {
           if (typeof transitionConfig.onRest === 'function') {
-            transitionConfig.onRest(isOpen, animationStatus);
+            transitionConfig?.onRest(isOpen, animationStatus);
           }
           if (animationStatus === 'update') setStatus(isOpen ? 'focus-locked' : 'focus-unlocked'); // if done opening, lock focus. if done closing, unlock focus
         }

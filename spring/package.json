@@ -1,6 +1,6 @@
 {
-  "name": "react-spring-modal",
-  "version": "2.0.1",
+  "name": "@chrisbrownie55/react-spring-modal",
+  "version": "2.0.7",
   "description": "Animatable and accessible modals built with react-spring and @reach/dialog",
   "author": "Chris Brown <chris_brown@hey.com> (https://chrisbrownie.dev)",
   "license": "MIT",
@@ -37,11 +37,10 @@
   },
   "types": "./dist/modern/index.d.ts",
   "files": [
-    "./dist",
-    "./styles.css",
-    "./src",
-    "./package.json",
-    "./README.md"
+    "dist",
+    "styles.css",
+    "src",
+    "assets"
   ],
   "scripts": {
     "emit": "",
@@ -59,20 +58,20 @@
     "@types/react-dom": "^17.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-spring": "^8.0.27",
     "rollup": "^2.36.1",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-node-externals": "^2.2.0",
+    "rollup-plugin-visualizer": "^4.2.2",
     "typescript": "^4.2.0-beta"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "react-spring": ">=8"
+    "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@reach/auto-id": "^0.12.1",
-    "@reach/dialog": ">=0.12",
-    "react-focus-lock": "^2.5.0"
+    "@reach/auto-id": "^0.14.0",
+    "@reach/dialog": "^0.14.0",
+    "react-spring": "^8.0.21"
   }
 }

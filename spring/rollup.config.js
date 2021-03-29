@@ -1,6 +1,8 @@
 import typescript from 'typescript';
 import pluginTypeScript from '@rollup/plugin-typescript';
 import del from 'rollup-plugin-delete';
+import externals from 'rollup-plugin-node-externals';
+import visualize from 'rollup-plugin-visualizer';
 
 import tsConfig from './tsconfig.json';
 import pkg from './package.json';
@@ -49,8 +51,9 @@ function copyStyles() {
 export default [
   {
     input: pkg.source,
-    external: externalDependencies,
     plugins: [
+      externals({ deps: true }), // automatic externalization of dependencies
+      visualize({ filename: 'stats/commonjs.html' }), // creates a visualization of the bundle
       // so Rollup can convert TypeScript to JavaScript
       pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/commonjs/' }),
       copyStyles(), // so we can have CSS!
@@ -60,14 +63,20 @@ export default [
   },
   {
     input: pkg.source,
-    external: externalDependencies,
-    plugins: [pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/module/' })],
+    plugins: [
+      externals({ deps: true }),
+      visualize({ filename: 'stats/module.html' }),
+      pluginTypeScript({ ...TypeScriptConfigs.legacy, declarationDir: './dist/module/' })
+    ],
     output: { dir: './dist/module/', format: 'es', sourcemap: true }
   },
   {
     input: pkg.source,
-    external: externalDependencies,
-    plugins: [pluginTypeScript(TypeScriptConfigs.modern)],
+    plugins: [
+      visualize({ filename: 'stats/modern.html' }),
+      externals({ deps: true }),
+      pluginTypeScript(TypeScriptConfigs.modern)
+    ],
     output: { dir: './dist/modern/', format: 'es', sourcemap: true }
   }
 ];

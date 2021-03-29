@@ -14,7 +14,7 @@ A component library for animatable and accessible modals built with react-spring
 
 ## Usage
 
-![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](assets/carbon.png)
+![Example usage of CenterModal, ModalTitle, and ModalCloseTarget to make a "confirmation" modal](/spring/assets/carbon.png)
 
 ### Installation
 
@@ -32,9 +32,7 @@ npm i react-spring-modal react react-dom react-spring
 
 ### Example
 
-<!-- TODO: update example after publishing -->
-
-You can [view comprehensive live examples on CodeSandbox.io](https://codesandbox.io/embed/react-spring-modalall-b3wp2?fontsize=14&hidenavigation=1&theme=dark)
+You can [view comprehensive live examples on CodeSandbox.io](https://codesandbox.io/s/react-spring-modalexamples-v2-lcjc5?file=/src/examples/Bottom.tsx)
 
 To use this package you'll need to choose a modal and import the CSS file. In our example, we'll be using `<BottomModal>` to animate it's HTML contents up from the bottom of the screen with a white background.
 

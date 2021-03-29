@@ -20,7 +20,6 @@ yarn-error.log*
 .next/
 out/
 
-
 # TypeScript
 *.tsbuildinfo
 
@@ -33,6 +32,11 @@ out/
 dist
 build
 spring/styles.css
+framer/styles.css
+
+# rollup-plugin-visualizer
+spring/stats
+framer/stats
 
 # Testing
 coverage
